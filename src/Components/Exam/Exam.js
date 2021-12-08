@@ -4,6 +4,8 @@ import './Exam.css';
 
 const Exam = () => {
 
+   let isBlank = false;
+
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [submitted, setSubmitted] = useState(false);
@@ -44,8 +46,11 @@ const Exam = () => {
         </div>
       </div>
 
-      <div className="flex flex-col w-full">
-        {questions[currentQuestion].answerOptions.map((answer, index) => (
+        <div className="flex flex-col w-full">
+                      
+        {isBlank ? <div className="mb-3 pt-0">
+        <input type="text" placeholder="Enter your answer here..." className="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"/>
+                      </div> : questions[currentQuestion].answerOptions.map((answer, index) => (
         <div
           key={index}
           className="flex items-center w-full py-4 pl-5 m-2 ml-0 space-x-2 border-2 cursor-pointer bg-white/5 border-white/10 rounded-xl"
@@ -59,7 +64,7 @@ const Exam = () => {
           selectedOptions[currentQuestion] ? (answer.answer === selectedOptions[currentQuestion].answerByUser) : false
         }
         className="w-6 h-6 bg-black"
-            />
+                />
       <p className="ml-6 text-white">{answer.answer}</p>
       </div>
       ))}
@@ -71,6 +76,7 @@ const Exam = () => {
       </div>
 
       </div>}
+
       
     </div>
   );
