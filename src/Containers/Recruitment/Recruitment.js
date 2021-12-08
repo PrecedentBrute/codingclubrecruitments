@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import Exam from "../Components/Exam/Exam";
+import Exam from "../../Components/Exam/Exam";
+import Navbar from "../../Components/Navbar/Navbar";
+
+import './Recruitment.css';
 
 const Recruitment = () => {
   const [show, setShow] = useState(false);
@@ -10,6 +13,8 @@ const Recruitment = () => {
     
   return (
     <div>
+    <Navbar />
+    <div className="recruitmentDiv relative z-300">
       {show ? <Exam /> : 
       <div className="flex flex-col items-center">
       <div className=" flex justify-center items-center">
@@ -28,7 +33,8 @@ const Recruitment = () => {
       </button>
       
     </div>
-      }
+        }
+    </div>
     </div>
   );
 };

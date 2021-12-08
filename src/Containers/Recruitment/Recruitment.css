@@ -1,0 +1,7 @@
+.recruitmentDiv{
+    position: absolute !important;
+    top: 0 !important;
+    left: 50%;
+    transform: translateX(-50%);
+}
+

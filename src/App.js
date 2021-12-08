@@ -1,15 +1,20 @@
-import Recruitment from "./Containers/Recruitment";
-import Login from "./Components/Login/Login";
-import OurProjects from "./Components/OurProjects/Ourprojects"
-
+import React, {useState,useEffect} from 'react';
+import Main from "./Containers/Main";
+import Loader from "./Components/Loader/Loader";
 
 function App() {
+
+  const [completed, setCompleted] = useState(false);
+
+   useEffect(() => {
+    setTimeout(() => {
+      setCompleted(true);
+    }, 3000);
+  });
+
   return (
-    <div className="App" style={{background:"black"}}>
-      <header className="App-header">
-        {/* <Recruitment /> */}
-        <OurProjects/>
-      </header>
+    <div>
+    {completed ? <Main /> : <Loader />}
     </div>
   );
 }
