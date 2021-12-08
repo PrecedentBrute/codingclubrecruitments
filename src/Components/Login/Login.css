@@ -3,11 +3,6 @@
   --clr-bg: hsl(323 21% 16%);
 }
 
-.login{
-  position: absolute;
-  top: 0;
-}
-
 .neon-button {
   margin: 20px 0px -10px 120px;
   padding: 15px 40px;

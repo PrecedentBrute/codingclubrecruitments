@@ -1,6 +1,5 @@
 import React, { useState, useRef , Component } from "react";
 import ReactDOM from "react-dom";
-import Navbar from "../../Components/Navbar/Navbar";
 
 import './OurProjects.css';
 import slides from './projects.json'
@@ -46,7 +45,6 @@ function OurProjects() {
     
     
       <div>
-      <Navbar />
     <BreakpointProvider>  
       <Breakpoint medium up>
         <div className="project-main">

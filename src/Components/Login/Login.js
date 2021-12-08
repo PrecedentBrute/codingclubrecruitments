@@ -5,7 +5,6 @@ import './Login.css';
 function Login() {
     return(
         <div>
-        <Navbar />
         <div className="w-full h-screen flex items-center justify-center login">
         <form className="w-full md:w-1/3 bg-white rounded-lg">
             <div className="flex font-bold justify-center mt-6">

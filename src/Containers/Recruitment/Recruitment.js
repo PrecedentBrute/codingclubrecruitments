@@ -13,8 +13,7 @@ const Recruitment = () => {
     
   return (
     <div>
-    <Navbar />
-    <div className="recruitmentDiv relative z-300">
+    <div className="recruitmentDiv">
       {show ? <Exam /> : 
       <div className="flex flex-col items-center">
       <div className=" flex justify-center items-center">
