@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 // import "./RegistrationForm.css";
+import axios from "axios";
 
 export default class RegForm extends Component {
 
@@ -7,84 +8,102 @@ export default class RegForm extends Component {
         super(props);
         this.state = {
             customer: {
-              Name: "",
-              Prefrence1: "",
-              Prefrence2: "",
-              Prefrence3: "",
-              Prefrence4: "",
-              Prefrence5: "",
-              BitsEmail:"",
-              BitsId: "",
-              Gender: "",
-              Email:"",
+              name: "",
+              pr1: "",
+              pr2: "",
+              pr3: "",
+              pr4: "",
+              pr5: "",
+              bits_email:"",
+              bits_id: "",
+              gender: "",
+              email:"",
             }
           }
         }
       
         handleNameChanged(event) {
           var customer = this.state.customer;
-          customer.Name = event.target.value;
+          customer.name = event.target.value;
       
           this.setState({ customer: customer });
         }
         
         handleBitsEmailChanged(event) {
             var customer    = this.state.customer;
-            customer.BitsEmail = event.target.value;
+            customer.bits_email = event.target.value;
         
             this.setState({ customer: customer });
           }
           handleEmailChanged(event) {
             var customer    = this.state.customer;
-            customer.Email = event.target.value;
+            customer.email = event.target.value;
         
             this.setState({ customer: customer });
           }
           handleBitsIdChanged(event) {
             var customer    = this.state.customer;
-            customer.BitsId = event.target.value;
+            customer.bits_id = event.target.value;
         
             this.setState({ customer: customer });
           }
           handleGenderChanged(event) {
             var customer    = this.state.customer;
-            customer.Gender = event.target.value;
+            customer.gender = event.target.value;
         
             this.setState({ customer: customer });
           }
           handlePrefrence1Changed(event) {
             var customer    = this.state.customer;
-            customer.Prefrence1 = event.target.value;
+            customer.pr1 = event.target.value;
         
             this.setState({ customer: customer });
           }
           handlePrefrence2Changed(event) {
             var customer    = this.state.customer;
-            customer.Prefrence2 = event.target.value;
+            customer.pr2 = event.target.value;
         
             this.setState({ customer: customer });
           }
           handlePrefrence3Changed(event) {
             var customer    = this.state.customer;
-            customer.Prefrence3 = event.target.value;
+            customer.pr3 = event.target.value;
         
             this.setState({ customer: customer });
           }
           handlePrefrence4Changed(event) {
             var customer    = this.state.customer;
-            customer.Prefrence4 = event.target.value;
+            customer.pr4 = event.target.value;
         
             this.setState({ customer: customer });
           }
           handlePrefrence5Changed(event) {
             var customer    = this.state.customer;
-            customer.Prefrence5 = event.target.value;
+            customer.pr5 = event.target.value;
         
             this.setState({ customer: customer });
           }
           
         handleButtonClicked() {
           console.log(this.state.customer);
+
+          var config = {
+            method: 'post',
+            url: 'http://cc-api.eastus.cloudapp.azure.com/user-api/CandidateRegistration',
+            headers: { 
+              'Content-Type': 'application/json', 
+            },
+            data : this.state.customer
+          };
+
+          axios(config)
+          .then(function (response) {
+            console.log(JSON.stringify(response.data));
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+
         }
       
 render() {
@@ -107,7 +126,7 @@ render() {
               <i className="ml-3 fill-current text-gray-400 text-xs z-10 fas fa-user"></i>
               <input
                 type="text"
-                value={this.state.customer.Name}
+                value={this.state.customer.name}
                 onChange={this.handleNameChanged.bind(this)}
                 placeholder="Name"
                 className="-mx-6 px-8  w-full border rounded px-3 py-2 text-gray-700 focus:outline-none"
@@ -120,7 +139,7 @@ render() {
               <i className="ml-3 fill-current text-gray-400 text-xs z-10 fas fa-lock"></i>
               <input
                 type="text"
-                value={this.state.customer.BitsEmail}
+                value={this.state.customer.bits_email}
                 onChange={this.handleBitsEmailChanged.bind(this)}
                 placeholder="Bits Email"
                 className="-mx-6 px-8 w-full border rounded px-3 py-2 text-gray-700 focus:outline-none"
@@ -132,7 +151,7 @@ render() {
               <i className="ml-3 fill-current text-gray-400 text-xs z-10 fas fa-user"></i>
               <input
                 type="text"
-                value={this.state.customer.Email}
+                value={this.state.customer.email}
                 onChange={this.handleEmailChanged.bind(this)}
                 placeholder="Email"
                 className="-mx-6 px-8  w-full border rounded px-3 py-2 text-gray-700 focus:outline-none"
@@ -144,7 +163,7 @@ render() {
               <i className="ml-3 fill-current text-gray-400 text-xs z-10 fas fa-user"></i>
               <input
                 type="text"
-                value={this.state.customer.Gender}
+                value={this.state.customer.gender}
                 onChange={this.handleGenderChanged.bind(this)}
                 placeholder="Gender"
                 className="-mx-6 px-8  w-full border rounded px-3 py-2 text-gray-700 focus:outline-none"
@@ -156,7 +175,7 @@ render() {
               <i className="ml-3 fill-current text-gray-400 text-xs z-10 fas fa-user"></i>
               <input
                 type="text"
-                value={this.state.customer.BitsId}
+                value={this.state.customer.bits_id}
                 onChange={this.handleBitsIdChanged.bind(this)}
                 placeholder="Bits Id"
                 className="-mx-6 px-8  w-full border rounded px-3 py-2 text-gray-700 focus:outline-none"
@@ -168,7 +187,7 @@ render() {
               <i className="ml-3 fill-current text-gray-400 text-xs z-10 fas fa-user"></i>
               <input
                 type="text"
-                value={this.state.customer.Prefrence1}
+                value={this.state.customer.pr1}
                 onChange={this.handlePrefrence1Changed.bind(this)}
                 placeholder="Prefrence 1"
                 className="-mx-6 px-8  w-full border rounded px-3 py-2 text-gray-700 focus:outline-none"
@@ -180,7 +199,7 @@ render() {
               <i className="ml-3 fill-current text-gray-400 text-xs z-10 fas fa-user"></i>
               <input
                 type="text"
-                value={this.state.customer.Prefrence2}
+                value={this.state.customer.pr2}
                 onChange={this.handlePrefrence2Changed.bind(this)}
                 placeholder="Prefrence 2"
                 className="-mx-6 px-8  w-full border rounded px-3 py-2 text-gray-700 focus:outline-none"
@@ -192,7 +211,7 @@ render() {
               <i className="ml-3 fill-current text-gray-400 text-xs z-10 fas fa-user"></i>
               <input
                 type="text"
-                value={this.state.customer.Prefrence3}
+                value={this.state.customer.pr3}
                 onChange={this.handlePrefrence3Changed.bind(this)}
                 placeholder="Prefrence 3"
                 className="-mx-6 px-8  w-full border rounded px-3 py-2 text-gray-700 focus:outline-none"
@@ -204,7 +223,7 @@ render() {
               <i className="ml-3 fill-current text-gray-400 text-xs z-10 fas fa-user"></i>
               <input
                 type="text"
-                value={this.state.customer.Prefrence4}
+                value={this.state.customer.pr4}
                 onChange={this.handlePrefrence4Changed.bind(this)}
                 placeholder="Prefrence 4"
                 className="-mx-6 px-8  w-full border rounded px-3 py-2 text-gray-700 focus:outline-none"
@@ -216,7 +235,7 @@ render() {
               <i className="ml-3 fill-current text-gray-400 text-xs z-10 fas fa-user"></i>
               <input
                 type="text"
-                value={this.state.customer.Prefrence5}
+                value={this.state.customer.pr5}
                 onChange={this.handlePrefrence5Changed.bind(this)}
                 placeholder="Prefrence 5"
                 className="-mx-6 px-8  w-full border rounded px-3 py-2 text-gray-700 focus:outline-none"
