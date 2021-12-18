@@ -33,11 +33,13 @@ const Exam = () => {
   const handlePrevious = () => {
     const prevQues = currentQuestion - 1;
     prevQues >= 0 && setCurrentQuestion(prevQues);
+    setFibanswer("");
   };
 
   const handleNext = () => {
     const nextQues = currentQuestion + 1;
     nextQues < questions.length && setCurrentQuestion(nextQues);
+    setFibanswer("");
   };
 
   const handleSubmitButton = () => {
