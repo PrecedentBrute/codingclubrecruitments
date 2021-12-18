@@ -7,6 +7,7 @@ import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import Dropdown from '../Components/Navbar/Dropdown';
 import Navbar from '../Components/Navbar/Navbar';
 import { useState, useEffect } from 'react';
+import RegForm from '../Components/RegForm/RegForm';
 
 const Main = () => {
    
@@ -35,11 +36,12 @@ const Main = () => {
         <div>
         <BrowserRouter>       
         
-            <Navbar toggle={toggle} />
-            <Dropdown isOpen={isOpen} toggle={toggle} />
+        <Navbar toggle={toggle} />
+        <Dropdown isOpen={isOpen} toggle={toggle} />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
+          <Route path="/registration" component={RegForm} />
           <Route path="/projects" component={OurProjects} />
           <Route path="/recruitments" component={Recruitment} />
         </Switch>

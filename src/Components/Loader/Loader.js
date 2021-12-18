@@ -16,7 +16,7 @@ function Spinner(props) {
             </div>
          </div>
         <p id= "spinner_txt">CODING CLUB</p>
-        <div id="loader"></div>
+        {/*<div id="loader"></div>*/}
         </div> </div>)
 }
 

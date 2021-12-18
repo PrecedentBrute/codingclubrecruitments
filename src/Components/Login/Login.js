@@ -27,9 +27,10 @@ function Login() {
                             className="-mx-6 px-8 w-full border rounded px-3 py-2 text-gray-700 focus:outline-none" />
                     </div>
                 </div>
+                        
                 <a href="#" className="text-xs text-gray-500 float-right mb-4">Forgot Password?</a>
                 <button type="submit"
-                    className="neon-button ">Submit</button>
+                    className="login-button w-full py-2 rounded-full bg-green-600 text-gray-100  focus:outline-none">Login</button>
             </div>
         </form>
     </div>

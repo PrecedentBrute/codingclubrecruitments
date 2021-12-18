@@ -4,17 +4,19 @@ import './Exam.css';
 
 const Exam = () => {
 
-   let isBlank = false;
+   let isBlank = true;
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [submitted, setSubmitted] = useState(false);
+  const [fibanswer, setFibanswer] = useState('');
 
   const handleAnswerOption = (answer) => {
     setSelectedOptions([
       (selectedOptions[currentQuestion] = { answerByUser: answer }),
     ]);
     setSelectedOptions([...selectedOptions]);
+
   };
 
   const handlePrevious = () => {
@@ -49,8 +51,13 @@ const Exam = () => {
         <div className="flex flex-col w-full">
                       
         {isBlank ? <div className="mb-3 pt-0">
-        <input type="text" placeholder="Enter your answer here..." className="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"/>
-                      </div> : questions[currentQuestion].answerOptions.map((answer, index) => (
+              <input type="text"
+                placeholder="Enter your answer here..."
+                className="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative text-black rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
+                value={fibanswer}
+                onChange={(e) => { setFibanswer(e.target.value)}}
+                />
+                </div> : questions[currentQuestion].answerOptions.map((answer, index) => (
         <div
           key={index}
           className="flex items-center w-full py-4 pl-5 m-2 ml-0 space-x-2 border-2 cursor-pointer bg-white/5 border-white/10 rounded-xl"
