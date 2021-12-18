@@ -1,20 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Listbox } from '@headlessui/react'
 
 import { ReOrderableItem, ReOrderableList } from 'react-reorderable-list'
 import 'react-reorderable-list/dist/index.css'
 
-export default class RegForm extends Component {
+export default class RegForm extends Component { 
 
-    genders = [
-      { id: 1, name: 'Male', unavailable: false },
-      { id: 2, name: 'Female', unavailable: false },
-      { id: 3, name: 'Non Binary', unavailable: false },
-    ] 
-
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
         this.state = {
             customer: {
               name: "",
@@ -26,7 +19,7 @@ export default class RegForm extends Component {
               password: "",
               bits_email:"",
               bits_id: "",
-              gender: "",
+              gender: 0,
               email:"",
           },
           prlist: 
@@ -35,9 +28,8 @@ export default class RegForm extends Component {
               { id: 2, name: 'Backend' },
               { id: 3, name: 'Frontend' },
               { id: 4, name: 'App Development' },
-              { id: 5, name: 'UI/UX Development' }]
+              { id: 5, name: 'UI/UX Development' }],          
           }
-          
         }
       
         handleNameChanged(event) {
@@ -115,32 +107,33 @@ export default class RegForm extends Component {
           else if (id === 5) return "ui";
         }
           
-        handleButtonClicked() {
+  handleButtonClicked(e) {
+          e.preventDefault();
           console.log(this.state.customer);
 
 
-          var config = {
-            method: 'post',
-            url: 'http://cc-api.eastus.cloudapp.azure.com/user-api/CandidateRegistration',
-            headers: { 
-              'Content-Type': 'application/json', 
-            },
-            data : this.state.customer
-          };
+          // var config = {
+          //   method: 'post',
+          //   url: 'http://cc-api.eastus.cloudapp.azure.com/user-api/CandidateRegistration',
+          //   headers: { 
+          //     'Content-Type': 'application/json', 
+          //   },
+          //   data : this.state.customer
+          // };
 
-          axios(config)
-          .then(function (response) {
-            console.log(JSON.stringify(response.data));
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+          // axios(config)
+          // .then(function (response) {
+          //   console.log(JSON.stringify(response.data));
+          // })
+          // .catch(function (error) {
+          //   console.log(error);
+          // });
 
         }
       
 render() {
   return (
-    <div className="w-full h-screen flex items-center justify-center">
+    <div className="w-full flex items-center justify-center mt-10 mb-10 p-8">
       <form className="w-full md:w-1/3 bg-white rounded-lg">
         <div className="flex font-bold justify-center mt-6">
           <img
@@ -162,7 +155,6 @@ render() {
                 onChange={this.handleNameChanged.bind(this)}
                 placeholder="Name"
                 className="-mx-6 px-8  w-full border rounded px-3 py-2 border-black text-gray-700 focus:outline-none"
-
               />
             </div>
           </div>
@@ -202,16 +194,20 @@ render() {
               />
             </div>
           </div>
-          <div className="w-full mb-2">
-            <div className="flex items-center">
-              <i className="ml-3 fill-current text-gray-400 text-xs z-10 fas fa-user"></i>
-              <input
-                type="text"
-                value={this.state.customer.gender}
-                onChange={this.handleGenderChanged.bind(this)}
-                placeholder="Gender"
-                className="-mx-6 px-8  w-full border rounded px-3 py-2 border-black text-gray-700 focus:outline-none"
-              />
+          Select Gender :
+          <div className="inline-flex">
+            <svg className="w-2 h-2 absolute top-0 right-0 m-4 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 412 232"><path d="M206 171.144L42.678 7.822c-9.763-9.763-25.592-9.763-35.355 0-9.763 9.764-9.763 25.592 0 35.355l181 181c4.88 4.882 11.279 7.323 17.677 7.323s12.796-2.441 17.678-7.322l181-181c9.763-9.764 9.763-25.592 0-35.355-9.763-9.763-25.592-9.763-35.355 0L206 171.144z" fill="#648299" fill-rule="nonzero"/></svg>
+            <div className="m-3">
+              <select id="genderSelect" value={this.state.customer.gender} onChange={(e) => {
+                var customer = this.state.customer;
+                customer.gender = e.target.value;
+                this.setState({ customer: customer });
+              }}
+                className="border border-black rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+              <option value="0">Male</option>
+              <option value="1">Female</option>
+              <option value="2">Other</option>
+            </select>
             </div>
           </div>
           <div className="w-full mb-2">
@@ -222,7 +218,7 @@ render() {
                 value={this.state.customer.bits_id}
                 onChange={this.handleBitsIdChanged.bind(this)}
                 placeholder="BITS ID ex. (2021XXPSXXXXP)"
-                className="-mx-6 px-8  w-full border rounded px-3 py-2 border-black text-gray-700 focus:outline-none"
+                className="-mx-6 px-8 w-full border rounded px-3 py-2 border-black text-gray-700 focus:outline-none"
               />
             </div>
           </div>

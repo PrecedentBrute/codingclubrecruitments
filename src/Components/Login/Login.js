@@ -5,7 +5,7 @@ import './Login.css';
 function Login() {
     return(
         <div>
-        <div className="w-full h-screen flex items-center justify-center login">
+        <div className="w-full flex items-center justify-center login mt-10 mb-10 p-8">
         <form className="w-full md:w-1/3 bg-white rounded-lg">
             <div className="flex font-bold justify-center mt-6">
                 <img className="h-20 w-20"
@@ -30,7 +30,7 @@ function Login() {
                         
                 <a href="#" className="text-xs text-gray-500 float-right mb-4">Forgot Password?</a>
                 <button type="submit"
-                    className="login-button w-full py-2 rounded-full bg-green-600 text-gray-100  focus:outline-none">Login</button>
+                    className="login-button w-full py-2 rounded-full bg-red-500 text-gray-100  focus:outline-none">Login</button>
             </div>
         </form>
     </div>
