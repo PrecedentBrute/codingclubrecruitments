@@ -1,38 +1,484 @@
 [
   {
-    "question": "Number of ways to go down a 7-step staircase if you down 1, 2 or 3 steps at a time, would be",
-    "answerOptions": [
-      { "answer": "12" },
-      { "answer": "28" },
-      { "answer": "34", "isCorrect": true },
-      { "answer": "44" }
-    ]
+      "id": 54,
+      "qtxt": "q1",
+      "is_blank": false,
+      "question_file.url": "https://cc-quiz.s3.ap-south-1.amazonaws.com/questions/q1.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2OQQB327RTGRXAX5%2F20211218%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20211218T164233Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=28f3776de5ae791600dacf0f6e3e00c597d0e181dcf3f0a6d133bac3ccca563f",
+      "options": [
+          {
+              "text": "Option1",
+              "file": "https://images.unsplash.com/photo-1639798124484-752f1c12bc4d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxM3x8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60"
+          },
+          {
+              "text": "asd",
+              "file": "null"
+          },
+          {
+              "text": "asd",
+              "file": "null"
+          },
+          {
+              "text": "asd",
+              "file": "null"
+          }
+      ]
   },
   {
-    "question": "Who will be the captain of India?",
-    "answerOptions": [
-      { "answer": "Prithvi Shaw" },
-      { "answer": "Shubman Gill" },
-      { "answer": "KL Rahul", "isCorrect": true },
-      { "answer": "Jasprit Bumrah" }
-    ]
+      "id": 55,
+      "qtxt": "q2",
+      "is_blank": true,
+      "question_file.url": "null",
+      "options": [
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          }
+      ]
   },
   {
-    "question": "Number of ways to go down a 7-step staircase if you down 1, 2 or 3 steps at a time, would be",
-    "answerOptions": [
-      { "answer": "12" },
-      { "answer": "28" },
-      { "answer": "34", "isCorrect": true },
-      { "answer": "44" }
-    ]
+      "id": 56,
+      "qtxt": "q3",
+      "is_blank": true,
+      "question_file.url": "null",
+      "options": [
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          }
+      ]
   },
   {
-    "question": "Who will be the captain of India?",
-    "answerOptions": [
-      { "answer": "Prithvi Shaw" },
-      { "answer": "Shubman Gill" },
-      { "answer": "KL Rahul", "isCorrect": true },
-      { "answer": "Jasprit Bumrah" }
-    ]
+      "id": 57,
+      "qtxt": "q4",
+      "is_blank": false,
+      "question_file.url": "null",
+      "options": [
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          }
+      ]
+  },
+  {
+      "id": 58,
+      "qtxt": "q5",
+      "is_blank": false,
+      "question_file.url": "null",
+      "options": [
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          }
+      ]
+  },
+  {
+      "id": 59,
+      "qtxt": "q6",
+      "is_blank": false,
+      "question_file.url": "null",
+      "options": [
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          }
+      ]
+  },
+  {
+      "id": 60,
+      "qtxt": "q7",
+      "is_blank": false,
+      "question_file.url": "null",
+      "options": [
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          }
+      ]
+  },
+  {
+      "id": 61,
+      "qtxt": "q8",
+      "is_blank": false,
+      "question_file.url": "null",
+      "options": [
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          }
+      ]
+  },
+  {
+      "id": 62,
+      "qtxt": "q9",
+      "is_blank": false,
+      "question_file.url": "null",
+      "options": [
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          }
+      ]
+  },
+  {
+      "id": 63,
+      "qtxt": "q10",
+      "is_blank": false,
+      "question_file.url": "null",
+      "options": [
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          }
+      ]
+  },
+  {
+      "id": 64,
+      "qtxt": "q11",
+      "is_blank": false,
+      "question_file.url": "null",
+      "options": [
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          }
+      ]
+  },
+  {
+      "id": 65,
+      "qtxt": "q12",
+      "is_blank": false,
+      "question_file.url": "null",
+      "options": [
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          }
+      ]
+  },
+  {
+      "id": 66,
+      "qtxt": "q13",
+      "is_blank": false,
+      "question_file.url": "null",
+      "options": [
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          }
+      ]
+  },
+  {
+      "id": 67,
+      "qtxt": "q14",
+      "is_blank": false,
+      "question_file.url": "null",
+      "options": [
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          }
+      ]
+  },
+  {
+      "id": 68,
+      "qtxt": "q15",
+      "is_blank": false,
+      "question_file.url": "null",
+      "options": [
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          }
+      ]
+  },
+  {
+      "id": 69,
+      "qtxt": "q16",
+      "is_blank": false,
+      "question_file.url": "null",
+      "options": [
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          }
+      ]
+  },
+  {
+      "id": 70,
+      "qtxt": "q17",
+      "is_blank": false,
+      "question_file.url": "null",
+      "options": [
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          }
+      ]
+  },
+  {
+      "id": 71,
+      "qtxt": "q18",
+      "is_blank": false,
+      "question_file.url": "null",
+      "options": [
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          }
+      ]
+  },
+  {
+      "id": 72,
+      "qtxt": "q19",
+      "is_blank": false,
+      "question_file.url": "null",
+      "options": [
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          }
+      ]
+  },
+  {
+      "id": 73,
+      "qtxt": "q20",
+      "is_blank": false,
+      "question_file.url": "null",
+      "options": [
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          },
+          {
+              "text": "",
+              "file": "null"
+          }
+      ]
   }
 ]
+
+

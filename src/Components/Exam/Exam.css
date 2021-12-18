@@ -23,3 +23,7 @@ input[type="radio"]:checked:after {
   visibility: visible;
   border: 2px solid white;
 }
+
+.optionDiv{
+  width:100%;
+}
