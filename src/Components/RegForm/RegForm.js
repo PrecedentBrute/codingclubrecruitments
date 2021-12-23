@@ -19,7 +19,7 @@ export default class RegForm extends Component {
               password: "",
               bits_email:"",
               bits_id: "",
-              gender: 0,
+              gender: "M",
               email:"",
           },
           prlist: 
@@ -203,10 +203,10 @@ render() {
                 customer.gender = e.target.value;
                 this.setState({ customer: customer });
               }}
-                className="border border-black rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
-              <option value="0">Male</option>
-              <option value="1">Female</option>
-              <option value="2">Other</option>
+                className="border border-black rounded text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+              <option value="M">Male</option>
+              <option value="F">Female</option>
+              <option value="O">Non Binary</option>
             </select>
             </div>
           </div>
@@ -231,16 +231,14 @@ render() {
         list={this.state.prlist}
         //the list update callback
               onListUpdate={(newList) => {
-                this.setState({ prlist: newList }); console.log(newList);
-                this.setState({
-                customer: {
-                  pr1: this.depName(this.state.prlist[0].id),
-                  pr2: this.depName(this.state.prlist[1].id),
-                  pr3: this.depName(this.state.prlist[2].id),
-                  pr4: this.depName(this.state.prlist[3].id),
-                  pr5: this.depName(this.state.prlist[4].id)
-                }
-              });
+                this.setState({ prlist: newList });
+                var customer = this.state.customer;
+                customer.pr1 = this.state.prlist[0].name;
+                customer.pr2 = this.state.prlist[1].name;
+                customer.pr3 = this.state.prlist[2].name;
+                customer.pr4 = this.state.prlist[3].name;
+                customer.pr5 = this.state.prlist[4].name;
+                this.setState({ customer: customer });
               }
               }
         style={{
