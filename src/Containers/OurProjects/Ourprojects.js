@@ -5,7 +5,7 @@ import './OurProjects.css';
 import slides from './projects.json'
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
-import  { Breakpoint, BreakpointProvider } from 'react-socks';
+// import  { Breakpoint, BreakpointProvider } from 'react-socks';
 import ReactCardCarousel from "react-card-carousel";
 
 
@@ -14,30 +14,30 @@ function OurProjects() {
 
 
 
-  const [open1, setOpen1] = React.useState(false);
-  const ModalRef1 = React.useRef(null);
-  const [open2, setOpen2] = React.useState(false);
-  const ModalRef2 = React.useRef(null);
-  const [open3, setOpen3] = React.useState(false);
-  const ModalRef3 = React.useRef(null);
-  const [open4, setOpen4] = React.useState(false);
-  const ModalRef4 = React.useRef(null);
-  const [open5, setOpen5] = React.useState(false);
-  const ModalRef5 = React.useRef(null);
-  const [open6, setOpen6] = React.useState(false);
-  const ModalRef6 = React.useRef(null);
+  // const [open1, setOpen1] = React.useState(false);
+  // const ModalRef1 = React.useRef(null);
+  // const [open2, setOpen2] = React.useState(false);
+  // const ModalRef2 = React.useRef(null);
+  // const [open3, setOpen3] = React.useState(false);
+  // const ModalRef3 = React.useRef(null);
+  // const [open4, setOpen4] = React.useState(false);
+  // const ModalRef4 = React.useRef(null);
+  // const [open5, setOpen5] = React.useState(false);
+  // const ModalRef5 = React.useRef(null);
+  // const [open6, setOpen6] = React.useState(false);
+  // const ModalRef6 = React.useRef(null);
 
 
-  function handleModal(e) {
+  // function handleModal(e) {
     
-    if (e.target.id == 1) { setOpen1(true) } 
-    if (e.target.id == 2) { setOpen2(true) } 
-    if (e.target.id == 3) { setOpen3(true) } 
-    if (e.target.id == 4) { setOpen4(true) } 
-    if (e.target.id == 5) { setOpen5(true) } 
-    if (e.target.id == 6) { setOpen6(true) } 
+  //   if (e.target.id == 1) { setOpen1(true) } 
+  //   if (e.target.id == 2) { setOpen2(true) } 
+  //   if (e.target.id == 3) { setOpen3(true) } 
+  //   if (e.target.id == 4) { setOpen4(true) } 
+  //   if (e.target.id == 5) { setOpen5(true) } 
+  //   if (e.target.id == 6) { setOpen6(true) } 
     
-  }
+  // }
 
 
   
@@ -45,8 +45,8 @@ function OurProjects() {
     
     
       <div>
-    <BreakpointProvider>  
-      <Breakpoint medium up>
+  
+     
         <div className="project-main">
       <Hero>
         <div className="container">
@@ -54,7 +54,7 @@ function OurProjects() {
             {slides.map((card, i) => (
               <div className="column" key={card.id}>
                 <Card>
-                  <div className="project-card-title"><a id={card.id} onClick={(e) => handleModal(e)}> {card.title} </a></div>
+                  <div className="project-card-title"><a id={card.id}> {card.title} </a></div>
                   <div className="project-card-body">{card.description}</div>
                   <div className="project-card-techstack">{card.techstack}</div>
                   <Image ratio={900/900} src={card.image} />
@@ -67,7 +67,7 @@ function OurProjects() {
     </div>
 
 
-        <div>
+        {/* <div>
             <div ref={ModalRef1} />
             <Modal open={open1} onClose={() => setOpen1(false)} center container={ModalRef1.current} >
                   <div className="project-modal">
@@ -81,9 +81,9 @@ function OurProjects() {
                       <a href={slides[0].target}>Visit</a>
                   </div>    
             </Modal>
-        </div>
+        </div> */}
 
-        <div>
+        {/* <div>
               <div ref={ModalRef2} />
             <Modal open={open2} onClose={() => setOpen2(false)} center container={ModalRef2.current}>
                <div className="project-modal">
@@ -97,8 +97,8 @@ function OurProjects() {
                       <a href={slides[1].target}>Visit</a>
                   </div>    
             </Modal>
-        </div>
-
+        </div> */}
+{/* 
         <div>
             <div ref={ModalRef3} />
             <Modal open={open3} onClose={() => setOpen3(false)} center container={ModalRef1.current} >
@@ -113,9 +113,9 @@ function OurProjects() {
                       <a href={slides[2].target}>Visit</a>
                   </div>
             </Modal>
-        </div>
+        </div> */}
 
-        <div>
+        {/* <div>
               <div ref={ModalRef4} />
             <Modal open={open4} onClose={() => setOpen4(false)} center container={ModalRef2.current}>
             <div className="project-modal">
@@ -129,9 +129,9 @@ function OurProjects() {
                       <a href={slides[3].target}>Visit</a>
                   </div>
             </Modal>
-        </div>
+        </div> */}
 
-        <div>
+        {/* <div>
             <div ref={ModalRef5} />
             <Modal open={open5} onClose={() => setOpen5(false)} center container={ModalRef1.current} >
             <div className="project-modal">
@@ -145,9 +145,9 @@ function OurProjects() {
                       <a href={slides[4].target}>Visit</a>
                   </div>
             </Modal>
-        </div>
+        </div> */}
 
-        <div>
+        {/* <div>
               <div ref={ModalRef6} />
             <Modal open={open6} onClose={() => setOpen6(false)} center container={ModalRef2.current}>
             <div className="project-modal">
@@ -160,11 +160,11 @@ function OurProjects() {
                       </div>
                   </div>
             </Modal>
-        </div>
+        </div> */}
       
-        </Breakpoint> 
+     
 
-        <Breakpoint medium down>
+      
         <div className="project-card-carousel">
         <ReactCardCarousel autoplay={true} autoplay_speed={2500}>
         {slides.map((card, i) => (
@@ -172,7 +172,7 @@ function OurProjects() {
              
                 <div className="project-card-carousel-style">
                 <h1 style={{padding: "10px" , fontSize: "3ch"}}><a href={card.target}> {card.title} </a></h1>
-                  <div>{card.description}</div>
+                  <div className="project-card-text">{card.description}</div>
                   <div style={{padding: "10px" }}>{card.techstack}</div>
                   <Image ratio={200/200} src={card.image} />
                 </div>
@@ -181,9 +181,9 @@ function OurProjects() {
             ))}
           </ReactCardCarousel>
           </div>    
-        </Breakpoint>
+     
       
-      </BreakpointProvider>
+     
       </div>
       
     
