@@ -3,8 +3,14 @@
 @tailwind utilities;
 body{
     /* background-color: rgb(14, 12, 12) ; */
-    background-image: linear-gradient(to right,rgb(100, 127, 127), black);
-    background-repeat: no-repeat;
+    background : linear-gradient(to right,rgb(100, 127, 127), black);
+    background-size: 100%;
+    /* background-image: linear-gradient(to right,rgb(100, 127, 127), black); */
+    
     /* background-size: 100vh; */
     overflow-x:hidden;
+  }
+
+  #root{
+    height: 1px;
   }
