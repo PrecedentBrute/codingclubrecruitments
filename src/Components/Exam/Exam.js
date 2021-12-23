@@ -54,16 +54,16 @@ const Exam = () => {
   return (
     <div className="z-10 flex flex-col px-5 justify-center items-center ExamComp">
       {submitted ? (
-        <h1 className="text-3xl font-semibold text-center text-white mt-10">
+        <h1 className="text-3xl font-bold text-center text-white mt-10">
           Thank you for your participation, we will get in touch with you soon.
         </h1>
       ) : (
         <div className="w-3/4">
           <div className="flex flex-col items-start w-full p-10">
-            <h4 className="mt-10 text-xl text-white/60">
+            <h4 className="mt-10 text-xl text-white font-bold">
               Question {currentQuestion + 1} of {questions.length}
             </h4>
-            <div className="mt-4 text-2xl text-white">
+            <div className="mt-4 text-2xl text-white font-bold">
               {questions[currentQuestion].qtxt}
             </div>
           </div>
@@ -74,7 +74,7 @@ const Exam = () => {
                 <input
                   type="text"
                   placeholder="Enter your answer here..."
-                  className="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative text-black rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
+                  className="px-3 py-3 placeholder-blueGray-300 card text-blueGray-600 relative text-black rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
                   value={fibanswer}
                   onChange={(e) => {
                     setFibanswer(e.target.value);
@@ -99,7 +99,7 @@ const Exam = () => {
                           selectedOptions[currentQuestion].answer
                         : false
                     }
-                    className="w-6 h-6 bg-black"
+                    className="w-6 h-6 card bg-black"
                   />
                   <p className="ml-6 text-white">{answer.text}</p>
                   {answer.file !== "null" ? (
@@ -115,7 +115,7 @@ const Exam = () => {
           <div className="flex justify-between w-full mt-4 text-white">
             <button
               onClick={handlePrevious}
-              className="w-1/2 m-1 py-3 bg-indigo-600 rounded-lg"
+              className="w-1/2 m-1 py-3 text-xl button bg-black rounded-lg"
             >
               Previous
             </button>
@@ -125,7 +125,7 @@ const Exam = () => {
                   ? handleSubmitButton
                   : handleNext
               }
-              className="w-1/2 m-1 py-3 bg-indigo-600 rounded-lg"
+              className="w-1/2 m-1 ml-10 text-xl py-3 button bg-black rounded-lg"
             >
               {currentQuestion + 1 === questions.length ? "Submit" : "Next"}
             </button>
