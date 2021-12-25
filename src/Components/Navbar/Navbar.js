@@ -8,7 +8,7 @@ const Navbar = ({ toggle }) => {
       role='navigation'
     >
       <Link to='/' className='pl-8'>
-        <img src="/assets/cclogo.jpg" className="border-b-2 border-red-600" alt="logo"/>
+        <img src="/assets/cclogo.jpg" className="border-b-2 border-red-700" alt="logo"/>
       </Link>
       <div className='px-4 cursor-pointer md:hidden' onClick={toggle}>
         <svg

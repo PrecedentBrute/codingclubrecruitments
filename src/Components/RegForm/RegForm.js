@@ -143,10 +143,10 @@ render() {
             src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/avatar.svg"
           />
         </div> */}
-        <h2 className="text-3xl text-bold text-center text-white mb-4 py-5 mt-4">
+        <h2 className="text-3xl text-bold text-center text-white py-5 mt-8">
           Registration Form
         </h2>
-        <div className="px-12 pb-10 text-white" >
+        <div className="md:px-12 px-8 pb-10 text-white" >
           <div className="w-full mb-2 py-3" >
           
             <div className="flex items-center " >
@@ -158,7 +158,7 @@ render() {
                 value={this.state.customer.name}
                 onChange={this.handleNameChanged.bind(this)}
                 placeholder="Name"
-                className="-mx-6 px-8  bg-transparent w-full border-b-2 border-teal-600 bg-teal-400 p-8 rounded px-3 py-2 border-black text-white focus:outline-none " 
+                className="-mx-6 px-8  bg-transparent w-full border-b-2 border-red-500 border-teal-600 bg-teal-400 p-8 rounded px-3 py-2 border-black text-white focus:outline-none " 
               />
             </div>
           </div>
@@ -171,7 +171,7 @@ render() {
                 value={this.state.customer.bits_email}
                 onChange={this.handleBitsEmailChanged.bind(this)}
                 placeholder="BITS Email (f2021XXPSXXXXP@bits-pilani.ac.in)"
-                className="-mx-6 px-8  bg-transparent w-full border-b-2 border-black-900 p-8 rounded px-3 py-2 border-black text-white focus:outline-none"
+                className="-mx-6 px-8  bg-transparent w-full border-b-2 border-red-500 border-black-900 p-8 rounded px-3 py-2 border-black text-white focus:outline-none"
               />
             </div>
           </div>
@@ -184,7 +184,7 @@ render() {
                 value={this.state.customer.email}
                 onChange={this.handleEmailChanged.bind(this)}
                 placeholder="Personal Email"
-                className="-mx-6 px-8  bg-transparent w-full border-b-2 border-teal-600 bg-teal-400 p-8 rounded px-3 py-2 border-black text-white focus:outline-none"
+                className="-mx-6 px-8  bg-transparent w-full border-b-2 border-red-500 border-teal-600 bg-teal-400 p-8 rounded px-3 py-2 border-black text-white focus:outline-none"
               />
             </div>
           </div>
@@ -197,7 +197,7 @@ render() {
                 value={this.state.customer.password}
                 onChange={this.handlePasswordChanged.bind(this)}
                 placeholder="Password"
-                className="-mx-6 px-8  bg-transparent w-full border-b-2 border-teal-600 bg-teal-400 p-8 rounded px-3 py-2 border-black text-white focus:outline-none"
+                className="-mx-6 px-8  bg-transparent w-full border-b-2 border-red-500 border-teal-600 bg-teal-400 p-8 rounded px-3 py-2 border-black text-white focus:outline-none"
               />
             </div>
           </div>
@@ -210,10 +210,10 @@ render() {
                 customer.gender = e.target.value;
                 this.setState({ customer: customer });
               }}
-                className="border border-white rounded text-white h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
-              <option value="M">Male</option>
-              <option value="F">Female</option>
-              <option value="O">Non Binary</option>
+                className="border-2 border-red-500 rounded h-10 pl-5 bg-black hover:border-gray-400">
+              <option className="bg-ccblack" value="M">Male</option>
+              <option className="bg-ccblack" value="F">Female</option>
+              <option className="bg-ccblack" value="O">Non Binary</option>
             </select>
             </div>
           </div>
@@ -226,7 +226,7 @@ render() {
                 value={this.state.customer.bits_id}
                 onChange={this.handleBitsIdChanged.bind(this)}
                 placeholder="BITS ID ex. (2021XXPSXXXXP)"
-                className="-mx-6 px-8  bg-transparent w-full border-b-2 border-teal-600 bg-teal-400 p-8 rounded px-3 py-2 border-black text-white focus:outline-none"
+                className="-mx-6 px-8  bg-transparent w-full border-b-2 border-red-500 border-teal-600 bg-teal-400 p-8 rounded px-3 py-2 border-black text-white focus:outline-none"
               />
             </div>
           </div>
@@ -256,7 +256,7 @@ render() {
         {this.state.prlist.map((data, index) => (
           <ReOrderableItem key={`item-${index}`}>
             <div
-              className="px-8 mt-2 mb-2 bg-transparent border border-white rounded px-3 py-2 text-white-700 focus:outline-none"
+              className="px-8 mt-2 mb-2 bg-transparent hover:border-gray-400 border-2 border-red-500 rounded px-3 py-2 text-white-700 focus:outline-none"
               style={{
                 cursor: 'pointer',
               }}

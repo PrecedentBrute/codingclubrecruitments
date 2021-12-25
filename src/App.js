@@ -9,7 +9,7 @@ function App() {
    useEffect(() => {
     setTimeout(() => {
       setCompleted(true);
-    }, 3000);
+    }, 1500);
   });
 
   return (

@@ -54,12 +54,12 @@ function OurProjects() {
                 <Fade >
                   <Tilt className="Tilt" options={{ max : 5 , scale: 1.05  }}  >
                     <div className="Tilt-inner"> 
-                        <Card>
+                        <div className="project-card">
                             <div className="project-card-title"><a id={card.id}> {card.title} </a></div>
                             <div className="project-card-body">{card.description}</div>
                             <div className="project-card-techstack">{card.techstack}</div>
                             <Image ratio={900/900} src={card.image} />
-                        </Card>
+                        </div>
                       </div>
                   </Tilt>
                 </Fade>

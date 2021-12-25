@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Dropdown.css';
 
 const Dropdown = ({ isOpen, toggle }) => {
   return (
     <div
       className={
         isOpen
-          ? 'grid grid-rows-4 text-center items-center bg-ccblack text-white'
+          ? 'grid grid-rows-4 text-center items-center bg-ccblack text-white drop'
           : 'hidden text-white'
       }
       onClick={toggle}

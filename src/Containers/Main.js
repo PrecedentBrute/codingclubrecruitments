@@ -8,6 +8,7 @@ import Dropdown from '../Components/Navbar/Dropdown';
 import Navbar from '../Components/Navbar/Navbar';
 import { useState, useEffect } from 'react';
 import RegForm from '../Components/RegForm/RegForm';
+import Slide from 'react-reveal/Slide';
 
 const Main = () => {
    
@@ -36,8 +37,10 @@ const Main = () => {
         <div>
         <BrowserRouter>       
         
+        <Slide top>
         <Navbar toggle={toggle} />
-        <Dropdown isOpen={isOpen} toggle={toggle} />
+            <Dropdown isOpen={isOpen} toggle={toggle} />
+          </Slide>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />

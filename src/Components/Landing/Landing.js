@@ -9,7 +9,7 @@ const Landing = () => {
     setTimeout(() => {
       setRender(true);
       setBorder(0);
-    }, 5000);
+    }, 200);
   });
 
   const styles = {

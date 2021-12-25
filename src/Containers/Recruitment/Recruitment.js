@@ -13,7 +13,7 @@ const Recruitment = () => {
     
   return (
     <div>
-    <div className="recruitmentDiv">
+    <div className="recruitmentDiv rounded-lg">
       {show ? <Exam /> : 
       <div className="flex flex-col items-center">
       <Fade top>
