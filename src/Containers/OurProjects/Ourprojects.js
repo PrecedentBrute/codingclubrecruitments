@@ -55,7 +55,7 @@ function OurProjects() {
             {slides.map((card, i) => (      
               <div className="column" key={card.id}>
                 <Fade >
-                  <Tilt className="Tilt" options={{ max : 15 , scale: 1.05  }}  >
+                  <Tilt className="Tilt" options={{ max : 5 , scale: 1.05  }}  >
                     <div className="Tilt-inner"> 
                         <Card>
                             <div className="project-card-title"><a id={card.id}> {card.title} </a></div>
