@@ -24,7 +24,7 @@ export default class RegForm extends Component {
           },
           prlist: 
             [
-              { id: 1, name: 'Competititve Programming' },
+              { id: 1, name: 'Competitive Programming' },
               { id: 2, name: 'Backend' },
               { id: 3, name: 'Frontend' },
               { id: 4, name: 'App Development' },
