@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 const Navbar = ({ toggle }) => {
   return (
     <nav
-      className='flex justify-between items-center h-16 bg-black text-white relative shadow-sm font-mono'
+      className='flex justify-between items-center h-16 bg-ccblack text-white relative shadow-sm'
       role='navigation'
     >
       <Link to='/' className='pl-8'>
-        <img src="/assets/cclogo.jpg" alt="logo"/>
+        <img src="/assets/cclogo.jpg" className="border-b-2 border-red-600" alt="logo"/>
       </Link>
       <div className='px-4 cursor-pointer md:hidden' onClick={toggle}>
         <svg

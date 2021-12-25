@@ -5,6 +5,10 @@
     border-radius: 10px;
 }
 
+.reg-form ::placeholder{
+    color: white;
+}
+
 .reg-form .input{
     color: black !important;
 }

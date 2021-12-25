@@ -20,7 +20,7 @@ const Landing = () => {
     <div>
       <div className="z-10">
         <div className="w-screen flex justify-center">
-          <h1 className="typing relative top-52 text-white text-5xl  md:text-6xl lg:text-7xl">
+          <h1 className="typing relative top-52 text-white text-5xl md:text-6xl lg:text-7xl">
             <div style={styles} className="type-text">
               CODING CLUB
             </div>

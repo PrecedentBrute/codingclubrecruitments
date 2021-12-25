@@ -22,7 +22,7 @@ const Recruitment = () => {
           <div className="bg-red-600 h-24 w-24 rounded-full flex items-center justify-center recruitment-card-image" >
             
           </div>
-          <h3 className="text-white">Please Log In Satvik</h3>
+          <h3 className="text-white">Please Log In to Start</h3>
         </div>
       </div>
       

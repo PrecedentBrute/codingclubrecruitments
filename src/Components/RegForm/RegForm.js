@@ -143,62 +143,61 @@ render() {
             src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/avatar.svg"
           />
         </div> */}
-        <h2 className="text-3xl text-bold text-center text-black mb-4 py-5">
+        <h2 className="text-3xl text-bold text-center text-white mb-4 py-5 mt-4">
           Registration Form
         </h2>
-        <div className="px-12 pb-10" >
+        <div className="px-12 pb-10 text-white" >
           <div className="w-full mb-2 py-3" >
           
             <div className="flex items-center " >
             
-              <i className="ml-3 fill-current text-gray-400 text-xs z-10 fas fa-user "></i>
+              <i className="ml-3 fill-current text-white text-xs z-10 fas fa-user "></i>
               
               <input
                 type="text"
                 value={this.state.customer.name}
                 onChange={this.handleNameChanged.bind(this)}
                 placeholder="Name"
-                className="-mx-6 px-8  bg-transparent w-full border-b-2 border-teal-600 bg-teal-400 p-8 rounded px-3 py-2 border-black text-black focus:outline-none " 
+                className="-mx-6 px-8  bg-transparent w-full border-b-2 border-teal-600 bg-teal-400 p-8 rounded px-3 py-2 border-black text-white focus:outline-none " 
               />
             </div>
           </div>
           <div className="w-full mb-2 py-3">
           
             <div className="flex items-center">
-              <i className="ml-3 fill-current text-black text-xs z-10 fas fa-lock"></i>
+              <i className="ml-3 fill-current text-white text-xs z-10 fas fa-lock"></i>
               <input
                 type="text"
                 value={this.state.customer.bits_email}
                 onChange={this.handleBitsEmailChanged.bind(this)}
                 placeholder="BITS Email (f2021XXPSXXXXP@bits-pilani.ac.in)"
-                className="-mx-6 px-8  bg-transparent w-full border-b-2 border-black-900 p-8 rounded px-3 py-2 border-black text-black-900 focus:outline-none"
+                className="-mx-6 px-8  bg-transparent w-full border-b-2 border-black-900 p-8 rounded px-3 py-2 border-black text-white focus:outline-none"
               />
             </div>
           </div>
           <div className="w-full mb-2 py-3">
           
             <div className="flex items-center">
-              <i className="ml-3 fill-current text-gray-400 text-xs z-10 fas fa-user"></i>
+              <i className="ml-3 fill-current text-white text-xs z-10 fas fa-user"></i>
               <input
                 type="text"
                 value={this.state.customer.email}
                 onChange={this.handleEmailChanged.bind(this)}
                 placeholder="Personal Email"
-                className="-mx-6 px-8  bg-transparent w-full border-b-2 border-teal-600 bg-teal-400 p-8 rounded px-3 py-2 border-black text-black focus:outline-none"
+                className="-mx-6 px-8  bg-transparent w-full border-b-2 border-teal-600 bg-teal-400 p-8 rounded px-3 py-2 border-black text-white focus:outline-none"
               />
             </div>
           </div>
           <div className="w-full mb-2 py-3">
          
             <div className="flex items-center">
-              <i className="ml-3 fill-current text-gray-400 text-xs z-10 fas fa-user"></i>
+              <i className="ml-3 fill-current text-white text-xs z-10 fas fa-user"></i>
               <input
                 type="text"
                 value={this.state.customer.password}
                 onChange={this.handlePasswordChanged.bind(this)}
                 placeholder="Password"
-                style={{color:"black"}}
-                className="-mx-6 px-8  bg-transparent w-full border-b-2 border-teal-600 bg-teal-400 p-8 rounded px-3 py-2 border-black text-black focus:outline-none"
+                className="-mx-6 px-8  bg-transparent w-full border-b-2 border-teal-600 bg-teal-400 p-8 rounded px-3 py-2 border-black text-white focus:outline-none"
               />
             </div>
           </div>
@@ -206,12 +205,12 @@ render() {
           <div className="inline-flex">
             <svg className="w-2 h-2 absolute top-0 right-0 m-4 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 412 232"><path d="M206 171.144L42.678 7.822c-9.763-9.763-25.592-9.763-35.355 0-9.763 9.764-9.763 25.592 0 35.355l181 181c4.88 4.882 11.279 7.323 17.677 7.323s12.796-2.441 17.678-7.322l181-181c9.763-9.764 9.763-25.592 0-35.355-9.763-9.763-25.592-9.763-35.355 0L206 171.144z" fill="#648299" fill-rule="nonzero"/></svg>
             <div className="m-3">
-              <select style={{background: "transparent", color: "black"}}  id="genderSelect" value={this.state.customer.gender} onChange={(e) => {
+              <select style={{background: "transparent", color: "white"}}  id="genderSelect" value={this.state.customer.gender} onChange={(e) => {
                 var customer = this.state.customer;
                 customer.gender = e.target.value;
                 this.setState({ customer: customer });
               }}
-                className="border border-black rounded text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+                className="border border-white rounded text-white h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
               <option value="M">Male</option>
               <option value="F">Female</option>
               <option value="O">Non Binary</option>
@@ -221,18 +220,18 @@ render() {
           <div className="w-full mb-2 py-3">
          
             <div className="flex items-center">
-              <i className="ml-3 fill-current text-gray-400 text-xs z-10 fas fa-user"></i>
+              <i className="ml-3 fill-current text-white text-xs z-10 fas fa-user"></i>
               <input
                 type="text"
                 value={this.state.customer.bits_id}
                 onChange={this.handleBitsIdChanged.bind(this)}
                 placeholder="BITS ID ex. (2021XXPSXXXXP)"
-                className="-mx-6 px-8  bg-transparent w-full border-b-2 border-teal-600 bg-teal-400 p-8 rounded px-3 py-2 border-black text-black focus:outline-none"
+                className="-mx-6 px-8  bg-transparent w-full border-b-2 border-teal-600 bg-teal-400 p-8 rounded px-3 py-2 border-black text-white focus:outline-none"
               />
             </div>
           </div>
-        <div className="text-black mt-3 py-3">Arrange in the order of your preference (Draggable)</div> 
-          <div style={{ display: 'flex', gap: '20px' }} className="text-black">
+        <div className="text-white mt-3 py-3">Arrange in the order of your preference (Draggable)</div> 
+          <div style={{ display: 'flex', gap: '20px' }} className="text-white">
       <ReOrderableList
         //The unique identifier for this list. Should be unique from other lists and list groups.
         name='list2'
@@ -257,7 +256,7 @@ render() {
         {this.state.prlist.map((data, index) => (
           <ReOrderableItem key={`item-${index}`}>
             <div
-              className="px-8 mt-2 mb-2 bg-transparent border border-black rounded px-3 py-2 text-black-700 focus:outline-none"
+              className="px-8 mt-2 mb-2 bg-transparent border border-white rounded px-3 py-2 text-white-700 focus:outline-none"
               style={{
                 cursor: 'pointer',
               }}
