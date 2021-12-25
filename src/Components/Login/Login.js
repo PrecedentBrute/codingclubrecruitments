@@ -16,14 +16,14 @@ function Login() {
                     <div className="flex items-center">
                         <i className='ml-3 fill-current text-gray-400 text-xs z-10 fas fa-user'></i>
                         <input type='text' placeholder="Username"
-                            className="-mx-6 px-8  w-full border rounded px-3 py-2 text-gray-700 focus:outline-none login-placeholder" />
+                             className="-mx-6 px-8 bg-transparent w-full border-b-4 border-teal-600 bg-teal-400 p-8 rounded px-3 py-2 border-black text-black focus:outline-none" />
                     </div>
                 </div>
                 <div className="w-full mb-2">
                     <div className="flex items-center">
                         <i className='ml-3 fill-current text-gray-400 text-xs z-10  fas fa-lock'></i>
                         <input type='text' placeholder="Password"
-                            className="-mx-6 px-8 w-full border rounded px-3 py-2 text-gray-700 focus:outline-none login-placeholder" />
+                             className="-mx-6 px-8  bg-transparent w-full border-b-4 border-teal-600 bg-teal-400 p-8 rounded px-3 py-2 border-black text-black focus:outline-none" />
                     </div>
                 </div>
                         

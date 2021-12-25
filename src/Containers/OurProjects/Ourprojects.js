@@ -11,9 +11,6 @@ import ReactCardCarousel from "react-card-carousel";
 
 
 function OurProjects() {
-
-
-
   // const [open1, setOpen1] = React.useState(false);
   // const ModalRef1 = React.useRef(null);
   // const [open2, setOpen2] = React.useState(false);
