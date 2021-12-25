@@ -1,10 +1,12 @@
 import React from "react";
 import Navbar from "../Navbar/Navbar";
 import './Login.css';
+import Fade from 'react-reveal/Fade';
 
 function Login() {
     return(
         <div>
+        <Fade>
         <div className="w-full flex items-center justify-center login mt-10 mb-10 p-8">
         <form className="w-full md:w-1/3 bg-white rounded-lg login-form">
             <div className="flex font-bold justify-center mt-6">
@@ -33,6 +35,7 @@ function Login() {
             </div>
         </form>
     </div>
+    </Fade>
     </div>
     )
 }
