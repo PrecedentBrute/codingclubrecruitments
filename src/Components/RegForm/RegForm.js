@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-
+import Fade from 'react-reveal/Fade';
 import { ReOrderableItem, ReOrderableList } from 'react-reorderable-list'
 import 'react-reorderable-list/dist/index.css'
 
@@ -134,6 +134,7 @@ export default class RegForm extends Component {
 render() {
   return (
     <div className="w-full flex items-center justify-center mt-10 mb-10 p-8">
+    <Fade>
       <form className="w-full md:w-1/3 bg-white rounded-lg">
         <div className="flex font-bold justify-center mt-6">
           <img
@@ -270,6 +271,7 @@ render() {
           </button>
         </div>
       </form>
+      </Fade>
     </div>
   );
 

@@ -7,7 +7,8 @@ import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 // import  { Breakpoint, BreakpointProvider } from 'react-socks';
 import ReactCardCarousel from "react-card-carousel";
-
+import Tilt from 'react-tilt'
+import Fade from 'react-reveal/Fade';
 
 
 function OurProjects() {
@@ -51,15 +52,30 @@ function OurProjects() {
       <Hero>
         <div className="container">
           <div className="row">
-            {slides.map((card, i) => (
+            {slides.map((card, i) => (      
               <div className="column" key={card.id}>
-                <Card>
-                  <div className="project-card-title"><a id={card.id}> {card.title} </a></div>
-                  <div className="project-card-body">{card.description}</div>
-                  <div className="project-card-techstack">{card.techstack}</div>
-                  <Image ratio={900/900} src={card.image} />
-                </Card>
+                <Fade >
+                  <Tilt className="Tilt" options={{ max : 15 , scale: 1.05  }}  >
+                    <div className="Tilt-inner"> 
+                        <Card>
+                            <div className="project-card-title"><a id={card.id}> {card.title} </a></div>
+                            <div className="project-card-body">{card.description}</div>
+                            <div className="project-card-techstack">{card.techstack}</div>
+                            <Image ratio={900/900} src={card.image} />
+                        </Card>
+                      </div>
+                  </Tilt>
+                </Fade>
               </div>
+  
+              // <div className="column" key={card.id}>
+              //   <Card>
+              //     <div className="project-card-title"><a id={card.id}> {card.title} </a></div>
+              //     <div className="project-card-body">{card.description}</div>
+              //     <div className="project-card-techstack">{card.techstack}</div>
+              //     <Image ratio={900/900} src={card.image} />
+              //   </Card>
+              // </div>
             ))}
           </div>
         </div>
