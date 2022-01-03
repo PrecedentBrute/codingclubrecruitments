@@ -3,6 +3,7 @@
     background: rgba(255, 255, 255, 0.158);
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 10px;
+    max-width: 100%;
 }
 
 .reg-form ::placeholder{

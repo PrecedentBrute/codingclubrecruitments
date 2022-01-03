@@ -103,7 +103,7 @@ export default class RegForm extends Component {
     e.preventDefault();
 
     if (this.state.customer.bits_id.length !== 4) {
-      window.alert("Please enter the last four digits from your ID");
+      window.alert("Please enter the last four digits from your BITS ID");
     } else {
           const toSubmit = {
           github: this.state.customer.github,
@@ -144,9 +144,9 @@ export default class RegForm extends Component {
       
 render() {
   return (
-    <div className="w-full flex items-center justify-center mt-10 mb-10 p-8">
+    <div className="w-full flex items-center justify-center mt-10 mb-10 md:p-8">
       <Fade>
-      <form className="w-11/12 md:w-1/3" className="reg-form">
+      <form className="reg-form">
         {/* <div className="flex font-bold justify-center mt-6">
           <img
             className="h-20 w-20"
@@ -157,7 +157,7 @@ render() {
         <h2 className="text-3xl text-bold text-center text-white py-5 mt-8">
           Preference Form
         </h2>
-        <div className="md:px-12 px-8 pb-10 text-white" >
+        <div className="md:px-12 px-4 md:px-8` pb-10 text-white" >
           <div className="w-full mb-2 py-3" >
           
             <div className="flex items-center " >
@@ -169,7 +169,7 @@ render() {
                 value={this.state.customer.name}
                 onChange={this.handleNameChanged.bind(this)}
                 placeholder="Name"
-                className="-mx-6 px-8  bg-transparent w-full border-b-2 border-red-500 border-teal-600 bg-teal-400 p-8 rounded px-3 py-2 border-black text-white focus:outline-none " 
+                className="-ml-2 px-8  bg-transparent w-full border-b-2 border-red-500 border-teal-600 bg-teal-400 p-8 rounded px-3 py-2 border-black text-white focus:outline-none " 
               />
             </div>
           </div>
@@ -182,7 +182,7 @@ render() {
                 value={this.state.customer.bits_email}
                 onChange={this.handleBitsEmailChanged.bind(this)}
                 placeholder="BITS Email (f2021XXPSXXXXP@bits-pilani.ac.in)"
-                className="-mx-6 px-8  bg-transparent w-full border-b-2 border-red-500 border-black-900 p-8 rounded px-3 py-2 border-black text-white focus:outline-none"
+                className="-ml-2 px-8  bg-transparent w-full border-b-2 border-red-500 border-black-900 p-8 rounded px-3 py-2 border-black text-white focus:outline-none"
               />
             </div>
           </div>
@@ -195,7 +195,7 @@ render() {
                 value={this.state.customer.email}
                 onChange={this.handleEmailChanged.bind(this)}
                 placeholder="Personal Email"
-                className="-mx-6 px-8  bg-transparent w-full border-b-2 border-red-500 border-teal-600 bg-teal-400 p-8 rounded px-3 py-2 border-black text-white focus:outline-none"
+                className="-ml-2 px-8  bg-transparent w-full border-b-2 border-red-500 border-teal-600 bg-teal-400 p-8 rounded px-3 py-2 border-black text-white focus:outline-none"
               />
             </div>
       </div>*/}
@@ -208,7 +208,7 @@ render() {
                 value={this.state.customer.github}
                 onChange={this.handleGithubChanged.bind(this)}
                 placeholder="GitHub link (optional)"
-                className="-mx-6 px-8  bg-transparent w-full border-b-2 border-red-500 border-teal-600 bg-teal-400 p-8 rounded px-3 py-2 border-black text-white focus:outline-none"
+                className="-ml-2 px-8  bg-transparent w-full border-b-2 border-red-500 border-teal-600 bg-teal-400 p-8 rounded px-3 py-2 border-black text-white focus:outline-none"
               />
             </div>
           </div>
