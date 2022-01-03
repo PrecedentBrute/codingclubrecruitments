@@ -144,7 +144,7 @@ export default class RegForm extends Component {
       
 render() {
   return (
-    <div className="w-full flex items-center justify-center mt-10 mb-10 md:p-8">
+    <div className="w-full flex items-center justify-center mt-10 mb-10 p-4 md:p-8">
       <Fade>
       <form className="reg-form">
         {/* <div className="flex font-bold justify-center mt-6">
@@ -229,7 +229,7 @@ render() {
             </div>
             </div>*/}
             
-          <div className="mb-2 mt-6 text-sm md:text-base">
+          <div className="ml-4 md:ml-0 mb-2 mt-6 text-sm md:text-base">
             <div className="text-lg">BITS ID</div>
             <div className="flex items-center w-10/12">
                 2021
@@ -271,17 +271,21 @@ render() {
                 </select>
                 </div>
                 
-                <div className="special"><input
+                <div className="special" className="w-3/4"><input
                   type="text"
                   value={this.state.customer.bits_id}
                   onChange={this.handleBitsIdChanged.bind(this)}
                   placeholder="FOUR DIGIT ID"
                   maxLength="4"
+                  style={{
+                    display: "inline-block",
+                    width: "100%"
+                  }}
                   className="bg-transparent border-b-2 border-red-500 border-teal-600 bg-teal-400 p-2 rounded text-white focus:outline-none"
               /></div> P
             </div>
           </div>
-        <div className="text-white mt-3 py-3">Arrange in decreasing order of your preference (Draggable)</div> 
+        <div className="ml-4 md:ml-0 `text-white mt-3 py-3">Arrange in decreasing order of your preference (Draggable)</div> 
           <div style={{ display: 'flex', gap: '20px', alignItems:'center', justifyContent:'center' }} className="text-white">
       <ReOrderableList
         //The unique identifier for this list. Should be unique from other lists and list groups.

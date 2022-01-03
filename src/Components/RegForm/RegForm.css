@@ -12,6 +12,7 @@
 
 .special ::placeholder{
     color: rgb(236, 223, 223);
+    width: 60%;
 }
 
 .reg-form .input{
