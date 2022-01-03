@@ -29,8 +29,8 @@ export default class RegForm extends Component {
           prlist: 
             [
               { id: 1, name: 'App Development' },
-              { id: 2, name: 'Frontend' },
-              { id: 3, name: 'Backend' },
+              { id: 2, name: 'Frontend Development' },
+              { id: 3, name: 'Backend Development' },
               { id: 4, name: 'Competitive Coding' },
               { id: 5, name: 'UI/UX Development' },
               { id: 6, name: 'Game Development' },
@@ -100,8 +100,27 @@ export default class RegForm extends Component {
         }
           
   handleButtonClicked(e) {
-          e.preventDefault();
-          console.log(this.state.customer);
+    e.preventDefault();
+
+    if (this.state.customer.bits_id.length !== 4) {
+      window.alert("Please enter the last four digits from your ID");
+    } else {
+          const toSubmit = {
+          github: this.state.customer.github,
+          bits_id: `2021${this.state.customer.branch}${this.state.customer.status}${this.state.customer.bits_id}P`,
+          gender: "M",
+          pr1: this.state.customer.pr1,
+          pr2: this.state.customer.pr2,
+          pr3: this.state.customer.pr3,
+          pr4: this.state.customer.pr4,
+          pr5: this.state.customer.pr5,
+          pr6: this.state.customer.pr6,
+          pr7: this.state.customer.pr7,
+        }
+    
+          console.log(toSubmit);
+    }
+    
 
 
           // var config = {
@@ -136,7 +155,7 @@ render() {
           />
         </div> */}
         <h2 className="text-3xl text-bold text-center text-white py-5 mt-8">
-          Registration Form
+          Preference Form
         </h2>
         <div className="md:px-12 px-8 pb-10 text-white" >
           <div className="w-full mb-2 py-3" >
