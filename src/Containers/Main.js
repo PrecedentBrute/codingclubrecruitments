@@ -46,7 +46,7 @@ const Main = () => {
           <Route path="/login" component={Login} />
           <Route path="/registration" component={RegForm} />
           <Route path="/projects" component={OurProjects} />
-          <Route path="/recruitments" component={Recruitment} />
+          <Route path="/test" component={Recruitment} />
         </Switch>
       
       

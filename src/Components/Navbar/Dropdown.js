@@ -7,8 +7,8 @@ const Dropdown = ({ isOpen, toggle }) => {
     <div
       className={
         isOpen
-          ? 'grid grid-rows-4 text-center items-center bg-ccblack text-white drop'
-          : 'hidden text-white'
+          ? 'grid grid-rows-4 text-center items-center bgdropdown text-white drop'
+          : 'hidden text-white drop'
       }
       onClick={toggle}
     >
@@ -18,8 +18,8 @@ const Dropdown = ({ isOpen, toggle }) => {
       <Link to='/projects' className='p-4'>
         Projects
       </Link>
-      <Link to='/recruitments' className='p-4'>
-        Recruitment
+      <Link to='/test' className='p-4'>
+        Test
       </Link>
       <Link to='/login' className='p-4'>
         Login

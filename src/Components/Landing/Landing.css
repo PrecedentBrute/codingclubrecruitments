@@ -12,7 +12,8 @@
 }
 
 .type-text {
-  mix-blend-mode: difference;
+  /* mix-blend-mode: difference; */
+  color: aliceblue;
   display: inline-block;
   overflow: hidden;
   letter-spacing: 2px;

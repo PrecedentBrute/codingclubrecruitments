@@ -9,6 +9,10 @@
     color: white;
 }
 
+.special ::placeholder{
+    color: rgb(236, 223, 223);
+}
+
 .reg-form .input{
     color: black !important;
 }
