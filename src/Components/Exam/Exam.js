@@ -45,6 +45,8 @@ const Exam = () => {
 
   const handleSubmitButton = () => {
     setSubmitted(true);
+    console.log(selectedOptions);
+    console.log(selectedOptions2);
   };
 
   const handleNavigation = (e) => {
@@ -55,12 +57,6 @@ const Exam = () => {
     setSelectedOptions2(selectedOptions)
   }, [selectedOptions])
 
-  
-
-  let isBlank = false;
-
-  console.log(submittedAnswers);
-  console.log(selectedOptions);
 
   return (
     <div className="z-10 flex px-5 justify-center items-center ExamComp">

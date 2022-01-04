@@ -9,3 +9,7 @@
     background-image: url(../../images/hacker-5151533_1280.jpeg);
     background-size: 100px;
 }
+
+.disabledButton{
+    opacity: 0.5 !important;
+}

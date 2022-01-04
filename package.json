@@ -27,6 +27,7 @@
     "react-tilt": "^0.1.4",
     "react-timer-hook": "^3.0.5",
     "styled-components": "^5.3.3",
+    "universal-cookie": "^4.0.4",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
