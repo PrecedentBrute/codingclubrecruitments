@@ -11,8 +11,8 @@ const Recruitment = (props) => {
     setShow(!show);
   };
   
-  let buttonClass = "p-10 mt-10 py-2 rounded-full bg-red-500 text-gray-100 focus:outline-none";
-  if (!props.loggedIn) {
+  let buttonClass = "p-10 mt-10 py-2 rounded-full bg-red-500 text-gray-100 focus:outline-none hover:bg-red-600";
+  if (props.loggedIn) {
     buttonClass += " cursor-not-allowed opacity-50 disabledButton";
   }
     
@@ -34,7 +34,7 @@ const Recruitment = (props) => {
       <button
         className={buttonClass}
               onClick={toggleShow}
-              disabled={!props.loggedIn}
+              disabled={props.loggedIn}
       >
         Start test
       </button>

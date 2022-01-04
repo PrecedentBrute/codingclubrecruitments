@@ -34,13 +34,13 @@ const Exam = () => {
   const handlePrevious = () => {
     const prevQues = currentQuestion - 1;
     prevQues >= 0 && setCurrentQuestion(prevQues);
-    setFibanswer("");
+    setFibanswer(submittedAnswers[prevQues].answertext ? submittedAnswers[prevQues].answertext : "");
   };
 
   const handleNext = () => {
     const nextQues = currentQuestion + 1;
     nextQues < questions.length && setCurrentQuestion(nextQues);
-    setFibanswer("");
+    setFibanswer(submittedAnswers[nextQues].answertext ? submittedAnswers[nextQues].answertext : "");
   };
 
   const handleSubmitButton = () => {

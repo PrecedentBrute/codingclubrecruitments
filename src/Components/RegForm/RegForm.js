@@ -401,7 +401,7 @@ export default class RegForm extends Component {
             {/* <a href="login" className="text-xs text-gray-500 float-right mb-4">Forgot github?</a> */}
             <button
               onClick={this.handleButtonClicked.bind(this)}
-              className="w-full py-2 mt-5 rounded-full bg-red-500 text-gray-100  focus:outline-none"
+              className="w-full py-2 mt-5 rounded-full bg-red-500 text-gray-100 hover:bg-red-600 focus:outline-none"
             >
               Submit
             </button>
