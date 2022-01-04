@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Landing.css";
+import "./Landing.scss";
 
 const Landing = () => {
   const [render, setRender] = useState(false);
@@ -16,10 +16,32 @@ const Landing = () => {
     border: `${border} solid white`,
   };
 
-  return (
-    <div>
-      <div className="z-10">
+  // return (
+  //   <div>
+  //     <div className="z-10">
+        
         <div className="w-screen flex justify-center">
+          <h1 className="typing relative top-60  text-2xl md:text-3xl lg:text-4xl">
+            {render ? <div className="type-text">BITS PILANI</div> : null}
+          </h1>
+        </div>
+    //  </div>
+  //   </div>
+  // );
+
+  return (
+    <>
+    <div class="page-bg"></div>
+
+    <div class="animation-wrapper">
+      <div class="particle particle-1"></div>
+      <div class="particle particle-2"></div>
+      <div class="particle particle-3"></div>
+      <div class="particle particle-4"></div>
+    </div>
+
+    <div class="page-wrapper"> 
+      <div className="w-screen flex justify-center">
           <h1 className="typing relative top-52 font-bold text-5xl md:text-6xl lg:text-7xl">
             <div style={styles} className="type-text">
               CODING CLUB
@@ -31,9 +53,9 @@ const Landing = () => {
             {render ? <div className="type-text">BITS PILANI</div> : null}
           </h1>
         </div>
-      </div>
     </div>
-  );
+    </>
+  )
 };
 
 export default Landing;
