@@ -1,3 +1,6 @@
+.ExamComp{
+  flex-direction: row;
+}
 .ExamComp input[type="radio"]:after {
   width: 24px;
   height: 24px;
@@ -38,4 +41,36 @@ input[type="radio"]:checked:after {
   /* box-shadow: 0px 0px 10px 10px rgba(255, 255, 255, 0.3); */
   background-color: rgba(255, 255, 255, 0.11);
   border: 2px solid rgba(55, 255, 255, 0.5);
+}
+
+.opt1{
+  width: 10px;
+  height: 10px;
+  background-color: #ff0000;
+  border-radius: 50%;
+}
+
+.opt2{
+  width: 10px;
+  height: 10px;
+  background-color: #51ff00;
+  border-radius: 50%;
+}
+
+.question-nav-child{
+  flex-basis: 20%;
+}
+
+.question-nav{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 15%;
+  margin-right: 5%;
+}
+
+@media only screen and (max-width: 720px) {
+  .ExamComp{
+    flex-direction: column;
+  }
 }

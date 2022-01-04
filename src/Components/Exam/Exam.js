@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import questions from "./questions.json";
 import "./Exam.css";
 
 const Exam = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedOptions, setSelectedOptions] = useState([]);
+  const [selectedOptions2, setSelectedOptions2] = useState([]);
   const [submitted, setSubmitted] = useState(false);
   const [fibanswer, setFibanswer] = useState("");
   const [submittedAnswers,setSubmittedAnswers] = useState([]);
@@ -46,18 +47,46 @@ const Exam = () => {
     setSubmitted(true);
   };
 
+  const handleNavigation = (e) => {
+    setCurrentQuestion(e);
+  }
+
+  useEffect(() => {
+    setSelectedOptions2(selectedOptions)
+  }, [selectedOptions])
+
+  
+
   let isBlank = false;
 
   console.log(submittedAnswers);
   console.log(selectedOptions);
 
   return (
-    <div className="z-10 flex flex-col px-5 justify-center items-center ExamComp">
+    <div className="z-10 flex px-5 justify-center items-center ExamComp">
+      
+     {!submitted ?  (<div className="question-nav">
+                        { questions.map((ques) => (
+                          
+                          <div className="question-nav-child">
+                          <div onClick={() =>  handleNavigation(ques.sno)} className="cursor-pointer"> {ques.qtxt} </div>
+                          
+                          { (selectedOptions2[ques.sno] == null && submittedAnswers[ques.sno] == null ) ? (<div className="opt1"></div>) : ( <div className="opt2"></div>) }
+                          </div> 
+
+                        ))
+                        }
+                  </div>) : (<div></div>)}
+      
       {submitted ? (
+        <div> 
         <h1 className="text-3xl font-bold text-center text-white mt-10">
           Thank you for your participation, we will get in touch with you soon.
         </h1>
+        </div>
       ) : (
+        
+
         <div className="w-3/4">
           <div className="flex flex-col items-start w-full p-10">
             <h4 className="mt-10 text-xl text-white font-bold">
