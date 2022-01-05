@@ -32,7 +32,7 @@ const Navbar = (props) => {
       className='flex justify-between items-center h-16 topbarr text-white relative shadow-sm'
       role='navigation'
     >
-      <Link to='/' className='flex pl-8 item-center'>
+      <Link to='/' className='flex pl-8 items-center'>
         <img width="50" height="50" src="/assets/logo.svg" className="" alt="logo" />
         <p className="mt-0 ml-3 headline">CODING CLUB</p>
       </Link>
