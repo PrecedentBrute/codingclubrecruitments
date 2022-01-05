@@ -14,6 +14,7 @@ const Landing = () => {
 
   const styles = {
     border: `${border} solid white`,
+    fontFamily: 'Lucida Sans, Lucida Sans Regular, Lucida Grande, Lucida Sans Unicode, Geneva, Verdana, sans-serif'
   };
 
   // return (
@@ -30,7 +31,7 @@ const Landing = () => {
   // );
 
   return (
-    <>
+    <div className="page">
     <div class="page-bg"></div>
 
     <div class="animation-wrapper">
@@ -40,7 +41,7 @@ const Landing = () => {
       <div class="particle particle-4"></div>
     </div>
 
-    <div class="page-wrapper"> 
+    <div className="page-wrapper"> 
       <div className="w-screen flex justify-center">
           <h1 className="typing relative top-52 font-bold text-5xl md:text-6xl lg:text-7xl">
             <div style={styles} className="type-text">
@@ -54,7 +55,7 @@ const Landing = () => {
           </h1>
         </div>
     </div>
-    </>
+    </div>
   )
 };
 

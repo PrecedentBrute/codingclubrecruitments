@@ -225,7 +225,7 @@ export default class RegForm extends Component {
           />
         </div> */}
           <h2 className="text-3xl text-bold text-center text-white py-5 mt-8">
-            Preference Form
+            Profile
           </h2>
           <div className="md:px-12 px-4 md:px-8` pb-10 text-white" >
             <div className="w-full mb-2 py-3" >
@@ -328,6 +328,7 @@ export default class RegForm extends Component {
                     <option className="bg-ccblack" value="B3">B3</option>
                     <option className="bg-ccblack" value="B4">B4</option>
                     <option className="bg-ccblack" value="B5">B5</option>
+                    <option className="bg-ccblack" value="D2">D2</option>
                   </select>
                 </div>
                 
@@ -343,7 +344,7 @@ export default class RegForm extends Component {
                   </select>
                 </div>
                 
-                <div className="special" className="w-3/4"><input
+                <div className="special w-3/4"><input
                   type="text"
                   value={this.state.customer.bits_id}
                   onChange={this.handleBitsIdChanged.bind(this)}

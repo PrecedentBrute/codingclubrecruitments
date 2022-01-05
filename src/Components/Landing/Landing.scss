@@ -173,6 +173,12 @@ $time-4: 200s;
   text-align: center;
   color: #fff;
   z-index: 2;
+  height: 50vh;
+}
+
+.page {
+  height: 100vh !important;
+  max-height: 100vh;
 }
 
 h4 {

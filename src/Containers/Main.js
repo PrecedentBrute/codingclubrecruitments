@@ -126,7 +126,7 @@ const Main = () => {
   });
 
     return (
-        <div>
+        <>
         <BrowserRouter>       
         
         <Slide top>
@@ -142,7 +142,7 @@ const Main = () => {
       
       
         </BrowserRouter>
-        </div>
+        </>
     )
 }
 

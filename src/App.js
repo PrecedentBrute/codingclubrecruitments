@@ -4,6 +4,10 @@ import Loader from "./Components/Loader/Loader";
 
 function App() {
 
+  const styles = {
+    height: "100vh",
+  }
+
   const [completed, setCompleted] = useState(false);
 
    useEffect(() => {
@@ -13,7 +17,7 @@ function App() {
   });
 
   return (
-    <div>
+    <div style={styles}>
     {completed ? <Main /> : <Loader />}
     </div>
   );
