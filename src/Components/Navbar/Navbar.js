@@ -52,7 +52,7 @@ const Navbar = (props) => {
           />
         </svg>
       </div>
-      <div className='pr-8 md:block  hidden'>
+      <div className='pr-8 md:block  hidden alignment'>
         <Link to='/' className='p-4'>
         Home
       </Link>

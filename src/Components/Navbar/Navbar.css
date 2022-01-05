@@ -6,3 +6,7 @@
 .headline {
     font-size: xx-large;
 }
+.alignment{
+    display: flex;
+    align-items: center;
+}

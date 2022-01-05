@@ -11,3 +11,7 @@
     /* text-decoration: underline; */
        border-bottom: 3px solid white;
    }
+
+   .p-4:focus{
+    border-bottom: 3px solid white;
+   }
