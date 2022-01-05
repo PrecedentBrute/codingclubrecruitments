@@ -56,16 +56,6 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
 /* Config */
 $color-bg: #1e1e1e;
 $color-particle: #fff;
@@ -179,6 +169,8 @@ $time-4: 200s;
 .page {
   height: 100vh !important;
   max-height: 100vh;
+  border: blue;
+  border-radius: 10px;
 }
 
 h4 {

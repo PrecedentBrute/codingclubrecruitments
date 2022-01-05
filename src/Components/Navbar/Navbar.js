@@ -27,9 +27,6 @@ const Navbar = (props) => {
     props.toggleWantsIn(false);
     //code to logout
   }
-
-
-
   return (
     <nav
       className='flex justify-between items-center h-16 topbarr text-white relative shadow-sm'
@@ -59,9 +56,9 @@ const Navbar = (props) => {
         <Link to='/' className='p-4'>
         Home
       </Link>
-      <Link to='/projects' className='p-4'>
+      {/* <Link to='/projects' className='p-4'>
         Our Projects
-      </Link>
+      </Link> */}
       <Link to='/test' className='p-4'>
         Recruitment Test
       </Link>
