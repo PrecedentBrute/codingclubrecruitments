@@ -41,9 +41,9 @@ const Dropdown = (props) => {
       <Link to='/' className='p-4'>
         Home
       </Link>
-      <Link to='/projects' className='p-4'>
+      {/* <Link to='/projects' className='p-4'>
         Our Projects
-      </Link>
+      </Link> */}
       <Link to='/test' className='p-4'>
         Test
       </Link>
