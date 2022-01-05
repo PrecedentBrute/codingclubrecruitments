@@ -2,7 +2,7 @@
   {
       "id": 54,
       "sno" : 0 ,
-      "qtxt": "q1",
+      "qtxt": "Q1",
       "is_blank": false,
       "question_file.url": "https://cc-quiz.s3.ap-south-1.amazonaws.com/questions/q1.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2OQQB327RTGRXAX5%2F20211218%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20211218T164233Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=28f3776de5ae791600dacf0f6e3e00c597d0e181dcf3f0a6d133bac3ccca563f",
       "options": [

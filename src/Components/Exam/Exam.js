@@ -1,14 +1,30 @@
 import React, { useState , useEffect } from "react";
 import questions from "./questions.json";
+import axios from "axios";
 import "./Exam.css";
 
 const Exam = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [selectedOptions, setSelectedOptions] = useState([]);
+
+  const [selectedOptions, setSelectedOptions] = useState(() => {
+    const saved = localStorage.getItem("savedOptions");
+    const initialValue = JSON.parse(saved);
+    return initialValue || [];
+  });
+
   const [selectedOptions2, setSelectedOptions2] = useState([]);
   const [submitted, setSubmitted] = useState(false);
+  const [time,setTime] = useState(134);
   const [fibanswer, setFibanswer] = useState("");
-  const [submittedAnswers,setSubmittedAnswers] = useState([]);
+  const [submittedAnswers,setSubmittedAnswers] = useState(() => {
+    const saved2 = localStorage.getItem("savedAnswer");
+    const initialValue = JSON.parse(saved2);
+    return initialValue || [];
+});
+
+// useEffect(() => {
+  
+// }, [time])
 
   const handleAnswerOption = (answer,id) => {
     // setSelectedOptions([
@@ -55,24 +71,33 @@ const Exam = () => {
 
   useEffect(() => {
     setSelectedOptions2(selectedOptions)
+    localStorage.setItem("savedOptions", JSON.stringify(selectedOptions));
   }, [selectedOptions])
 
+  useEffect(() => {
+    localStorage.setItem("savedAnswer", JSON.stringify(submittedAnswers));
+  }, [submittedAnswers])
 
   return (
     <div className="z-10 flex px-5 justify-center items-center ExamComp">
       
-     {!submitted ?  (<div className="question-nav">
+     {!submitted ?  (
+     <div className="master-ques">
+     <div className="question-nav">
                         { questions.map((ques) => (
                           
                           <div className="question-nav-child">
-                          <div onClick={() =>  handleNavigation(ques.sno)} className="cursor-pointer"> {ques.qtxt} </div>
                           
-                          { (selectedOptions2[ques.sno] == null && submittedAnswers[ques.sno] == null ) ? (<div className="opt1"></div>) : ( <div className="opt2"></div>) }
+                          
+                          { (selectedOptions2[ques.sno] == null && submittedAnswers[ques.sno] == null ) ? (<div className="opt1"><div onClick={() =>  handleNavigation(ques.sno)} className="cursor-pointer ques-num"> Q{ques.sno+1}</div></div>) : ( <div className="opt2"><div onClick={() =>  handleNavigation(ques.sno)} className="cursor-pointer ques-num"> Q{ques.sno+1}</div></div>) }
                           </div> 
 
                         ))
                         }
-                  </div>) : (<div></div>)}
+       </div>
+       <div className="timer"> Time left {Math.floor(time / 60)} : {time % 60} </div>
+       </div>
+                  ) : (<div></div>)}
       
       {submitted ? (
         <div> 
@@ -83,7 +108,8 @@ const Exam = () => {
       ) : (
         
 
-        <div className="w-3/4">
+        <div className="w-3/4 ques-panel" >
+          
           <div className="flex flex-col items-start w-full p-10">
             <h4 className="mt-10 text-xl text-white font-bold">
               Question {currentQuestion + 1} of {questions.length}
@@ -100,7 +126,7 @@ const Exam = () => {
                   type="text"
                   placeholder="Enter your answer here..."
                   className="px-3 py-3 placeholder-blueGray-300 card text-blueGray-600 relative text-black rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
-                  value={fibanswer}
+                  value={ submittedAnswers[currentQuestion].answertext  || fibanswer}
                   onChange={(e) => {
                     setFibanswer(e.target.value);
                     handleAnswerOption(e.target.value,questions[currentQuestion].id)

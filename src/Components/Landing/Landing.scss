@@ -56,6 +56,16 @@
 }
 
 
+
+
+
+
+
+
+
+
+
+
 /* Config */
 $color-bg: #1e1e1e;
 $color-particle: #fff;
@@ -81,6 +91,11 @@ $time-4: 200s;
 
 /* Styles */
 
+
+
+
+
+
 .page-bg {
   background: $color-bg;
   background-blend-mode: screen;
@@ -96,7 +111,8 @@ $time-4: 200s;
 .particle:after {
   position: absolute;
   content: "";
-  top: 2px;
+  top: 100px;
+  width: 100%;
 }
 
 .particle-1 {
@@ -134,13 +150,13 @@ $time-4: 200s;
 
 .particle-4 {
   animation: animParticle $time-4 linear infinite;
-  @include particles(100);
+  @include particles(1200);
   height: 1px;
   width: 1px;
 }
 
 .particle-4:after {
-  @include particles(100);
+  @include particles(700);
   height: 1px;
   width: 1px;
 }
@@ -158,29 +174,11 @@ $time-4: 200s;
   text-align: center;
   color: #fff;
   z-index: 2;
-  height: 50vh;
-}
-
-.page {
-  height: 100vh !important;
-  max-height: 100vh;
-  border: blue;
-  border-radius: 10px;
 }
 
 h4 {
   color: #fff;
   font-family: Monoton;
-  -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
-  -moz-animation: neon1 1.5s ease-in-out infinite alternate;
-  animation: neon1 1.5s ease-in-out infinite alternate;
-}
-
-h4:hover {
-  color: #FF1177;
-  -webkit-animation: none;
-  -moz-animation: none;
-  animation: none;
 }
 
 /*glow for webkit*/
