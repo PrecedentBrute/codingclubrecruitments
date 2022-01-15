@@ -154,7 +154,7 @@ const Exam = (props) => {
       <div className="z-10 flex px-5 justify-center items-center ExamComp text-white">
       
      {!submitted ?  (
-        <div className="flex flex-col" style={{flexShrink:"12", alignItems:"center"}}>
+        <div className="flex flex-col" style={{flexShrink:"12", alignItems:"center" , width: "100%"}}>
             <div className="master-ques">
                       <div className="timer"> Time left - {Math.floor(time / 60)} : {time % 60} </div>
                           <div className="question-nav">
