@@ -1,10 +1,11 @@
 import React, { useState , useEffect } from "react";
-import questions from "./questions.json";
 import axios from "axios";
 import "./Exam.css";
 
-const Exam = () => {
+const Exam = (props) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
+
+  const [questions, setQuestions] = useState(null);
 
   const [selectedOptions, setSelectedOptions] = useState(() => {
     const saved = localStorage.getItem("savedOptions");
@@ -14,17 +15,45 @@ const Exam = () => {
 
   const [selectedOptions2, setSelectedOptions2] = useState([]);
   const [submitted, setSubmitted] = useState(false);
-  const [time,setTime] = useState(134);
+  const [time,setTime] = useState(3600);
   const [fibanswer, setFibanswer] = useState("");
   const [submittedAnswers,setSubmittedAnswers] = useState(() => {
     const saved2 = localStorage.getItem("savedAnswer");
     const initialValue = JSON.parse(saved2);
     return initialValue || [];
-});
-
-// useEffect(() => {
+  });
   
-// }, [time])
+  const startTimer = () => {
+    setInterval(() => {
+      setTime(time => time - 1);
+    }, 1000);
+  }
+
+  useEffect(() => {
+    if (time < 0) {
+      handleSubmitButton();
+    }
+   }, [time]);
+
+   useEffect(() => {
+      const config = {
+        url: "https://api.cc-recruitments.tech/exam-api/GetTime",
+        method: "get",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        withCredentials: true
+    }
+
+    axios(config)
+    .then(function (response) {
+      setTime(parseInt(response.data.time, 10));
+      startTimer();
+    })
+    .catch(function (error) {
+      console.log(error)
+    });
+   }, [])
 
   const handleAnswerOption = (answer,id) => {
     // setSelectedOptions([
@@ -61,8 +90,30 @@ const Exam = () => {
 
   const handleSubmitButton = () => {
     setSubmitted(true);
-    console.log(selectedOptions);
-    console.log(selectedOptions2);
+    let answers = [...selectedOptions, ...submittedAnswers];
+    answers = answers.filter(function( element ) {
+    return element !== undefined;
+    });
+    
+    var config = {
+        method: 'post',
+        url: 'https://api.cc-recruitments.tech/exam-api/PostAnswers',
+        headers: { 
+          'content-type': 'application/json',
+          'X-CSRFToken': props.person.csrf
+        },
+        data: answers,
+        withCredentials: true
+        };
+        
+      axios(config)
+      .then(function (response) {
+        
+      }).catch(function (error) {
+        window.alert("Something went wrong, please try again");
+        console.log(error);
+      });
+    
   };
 
   const handleNavigation = (e) => {
@@ -78,13 +129,34 @@ const Exam = () => {
     localStorage.setItem("savedAnswer", JSON.stringify(submittedAnswers));
   }, [submittedAnswers])
 
-  return (
-    <div className="z-10 flex px-5 justify-center items-center ExamComp">
+  useEffect(() => {
+      const config = {
+        url: "https://api.cc-recruitments.tech/exam-api/GetQuestions",
+        method: "get",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        withCredentials: true
+    }
+
+    axios(config).then(res => {
+      console.log(res.data);
+      setQuestions(res.data);
+    }).catch(err => {
+      console.log(err)
+    });
+  }, [])
+
+  let toRender = <div className="text-center text-2xl mt-4 text-white">Loading Questions...</div>;
+
+  if (questions !== null) {
+    toRender = (
+      <div className="z-10 flex px-5 justify-center items-center ExamComp text-white">
       
      {!submitted ?  (
         <div className="flex flex-col" style={{flexShrink:"12", alignItems:"center"}}>
             <div className="master-ques">
-                      <div className="timer"> Time left {Math.floor(time / 60)} : {time % 60} </div>
+                      <div className="timer"> Time left - {Math.floor(time / 60)} : {time % 60} </div>
                           <div className="question-nav">
                             { questions.map((ques) => (  
                               <div className="question-nav-child">
@@ -96,8 +168,10 @@ const Exam = () => {
                         <div className="flex items-center mb-2 mt-2"><div className="opt12"></div> <p>Answered</p></div>  
                       </div>  
               </div>
-              <div className="resources"> 
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+          <div className="resources">
+                  <p>{questions[currentQuestion].hint_text}</p>
+                  <br></br>
+              <p><a href={questions[currentQuestion].hint_link} target="_blank" className="text-blue-500">{questions[currentQuestion].hint_link==="" ? null : "Resource Link"}</a></p>
               </div>
         </div>      
                   ) : (<div></div>)}
@@ -118,7 +192,12 @@ const Exam = () => {
               Question {currentQuestion + 1} of {questions.length}
             </h4>
             <div className="mt-4 text-2xl text-white font-bold">
-              {questions[currentQuestion].qtxt}
+                  {questions[currentQuestion].qtxt}
+                  { questions[currentQuestion]["question_file.url"] !== 'null'  ? (
+                    <div className="optionDiv flex justify-around items-center m-2 p-4">
+                      <img src={questions[currentQuestion]["question_file.url"]} />
+                    </div>
+                  ) : null}
             </div>
           </div>
 
@@ -187,7 +266,13 @@ const Exam = () => {
         </div>
       )}
     </div>
-  );
+
+    );
+  }
+
+  
+
+  return toRender;
 };
 
 export default Exam;

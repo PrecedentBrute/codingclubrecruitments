@@ -19,7 +19,7 @@ const Recruitment = (props) => {
   return (
     <div>
     <div className="recruitmentDiv rounded-lg">
-      {show ? <Exam /> : ( 
+        {show ? <Exam person={props.person}/> : ( 
       <div className="flex flex-col items-center">
       <Fade top>
       <div className=" flex justify-center items-center">

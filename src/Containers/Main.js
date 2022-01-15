@@ -22,6 +22,12 @@ const Main = () => {
   const [wantsIn, setWantsIn] = useState(true);
 
   const [preferences, setPreferences] = useState(null);
+
+  const [testStarted, setTestStarted] = useState(false);
+
+  const toggleTestStarted = () => {
+    setTestStarted(true);
+  }
   
   const toggleLoggedIn = (val) => {
     setLoggedIn(val);
@@ -47,6 +53,8 @@ const Main = () => {
 
     if (wantsIn) {
       axios(config).then(res => {
+
+        console.log(res);
         
         if (res.status === 200) {
           const cookies = new Cookies();
@@ -54,6 +62,7 @@ const Main = () => {
           email: res.data.email,
           name: res.data.name,
           csrf: cookies.get('csrftoken'),
+          testSubmitted: res.data.exam_given,
         }
         setPerson(profile);
         setLoggedIn(true);
@@ -137,7 +146,7 @@ const Main = () => {
           <Route exact path="/" component={Home} />
             <Route path="/preferences" render={() => <RegForm loggedIn={loggedIn} person={person} preferences={preferences}/>} />
           <Route path="/projects" component={OurProjects} />
-          <Route path="/test" render={() => <Recruitment loggedIn = {loggedIn} person={person} />} />
+          <Route path="/test" render={() => <Recruitment loggedIn = {loggedIn} person={person} toggleStarted={toggleTestStarted} testStarted={testStarted} />} />
         </Switch>
       
       
