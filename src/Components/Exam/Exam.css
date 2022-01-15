@@ -144,9 +144,15 @@ input[type="radio"]:checked:after {
     background: hsl(0deg 51% 53% / 26%);
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 10px;
+    width: 100%;
   
 }
 
+@media only screen and (max-width: 450px) {
+  .resources{
+    height: 21vw;
+  }
+}
 
 @media only screen and (max-width: 750px) {
   .ExamComp{
