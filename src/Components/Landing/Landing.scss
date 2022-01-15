@@ -25,6 +25,7 @@
   box-sizing: border-box;
 }
 
+
 @keyframes typing {
   from {
     width: 0%;
@@ -79,7 +80,7 @@ $time-4: 200s;
 @function particles($max) {
   $val: 0px 0px $color-particle;
   @for $i from 1 through $max {
-    $val: #{$val}, random(1500)+px random(1500)+px $color-particle;
+    $val: #{$val}, random(2600)+px random(3000)+px $color-particle;
   }
   @return $val;
 }
@@ -106,6 +107,7 @@ $time-4: 200s;
 
 .particle, .particle:after {
   background: transparent;
+  
 }
 
 .particle:after {

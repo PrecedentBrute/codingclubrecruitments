@@ -6,10 +6,21 @@
     backdrop-filter: saturate(150%) blur(30px);
     background-color: rgba(0,0,0,0.35);
 }
+.mob-dd{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    grid-row-start: 3;
+    grid-row-end: 5;
 
+}
 .topbarr > div > a:focus{
     /* text-decoration: underline; */
        border-bottom: 3px solid white;
+   }
+
+   .p-4:active{
+    border-bottom: 3px solid white;
    }
 
    .p-4:focus{
