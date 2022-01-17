@@ -18,7 +18,7 @@ const Carousel = () => {
   };
 
   return (
-    <div className="carousel-position w-screen z-10">
+    <div className="carousel-position absolute top-96 w-screen z-10">
       <div>
         <h1 className="achievement pl-8 text-7xl text-center">ACHIEVEMENTS</h1>
       </div>

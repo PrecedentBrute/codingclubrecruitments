@@ -167,7 +167,7 @@ const Exam = (props) => {
      {!submitted ?  (
         <div className="flex flex-col" style={{flexShrink:"12", alignItems:"center" , width: "100%"}}>
             <div className="master-ques">
-                      <div className="timer"> Time left - {Math.floor(time / 60)} : {time % 60} </div>
+                      <div className="timer"> Time left - {Math.floor(time / 60)} : {(time %60)/10 === 0 ? `0 ${time % 60}` : time % 60 } </div>
                           <div className="question-nav">
                             { questions.map((ques) => (  
                               <div className="question-nav-child">
@@ -218,7 +218,7 @@ const Exam = (props) => {
                 <input
                   type="text"
                   placeholder="Enter your answer here..."
-                  className="px-3 py-3 placeholder-blueGray-300 card text-blueGray-600 relative text-black rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
+                  className="px-3 py-3 placeholder-blueGray-300 card text-blueGray-600 relative rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full text-white"
                   value={ submittedAnswers[currentQuestion] != null ? (submittedAnswers[currentQuestion].answertext) : (fibanswer)}
                   onChange={(e) => {
                     setFibanswer(e.target.value);
