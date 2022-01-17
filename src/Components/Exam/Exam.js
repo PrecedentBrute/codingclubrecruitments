@@ -88,6 +88,14 @@ const Exam = (props) => {
     setFibanswer(submittedAnswers[nextQues].answertext ? submittedAnswers[nextQues].answertext : "");
   };
 
+  const handleSubmitConfirmation = () => {
+    if (window.confirm('Do you want to submit?')) {
+           handleSubmitButton();
+       } else {
+            // Do nothing!
+       }
+  }
+
   const handleSubmitButton = () => {
     setSubmitted(true);
     let answers = [...selectedOptions, ...submittedAnswers];
@@ -140,8 +148,11 @@ const Exam = (props) => {
     }
 
     axios(config).then(res => {
-      console.log(res.data);
-      setQuestions(res.data);
+      if (!Array.isArray(res.data)) {
+        console.log("error in fetching questions, please try again");
+      } else {
+          setQuestions(res.data);
+      }
     }).catch(err => {
       console.log(err)
     });
@@ -168,7 +179,7 @@ const Exam = (props) => {
                         <div className="flex items-center mb-2 mt-2"><div className="opt12"></div> <p>Answered</p></div>  
                       </div>  
               </div>
-          <div className="resources">
+          <div className={questions[currentQuestion].hint_text.length===0 ? "resources hidehint" : "resources"}>
                   <p>{questions[currentQuestion].hint_text}</p>
                   <br></br>
               <p><a href={questions[currentQuestion].hint_link} target="_blank" className="text-blue-500">{questions[currentQuestion].hint_link==="" ? null : "Resource Link"}</a></p>
@@ -255,7 +266,7 @@ const Exam = (props) => {
             <button
               onClick={
                 currentQuestion + 1 === questions.length
-                  ? handleSubmitButton
+                  ? handleSubmitConfirmation
                   : handleNext
               }
               className="w-1/2 m-1 ml-10 text-xl py-3 button bg-black rounded-lg"

@@ -40,7 +40,7 @@ export default class RegForm extends Component {
               pr7: props.preferences ? props.preferences.pr7 : "vi",
               github: props.preferences ? props.preferences.github : "",
               bits_email:props.person ? props.person.email : "",
-              bits_id: props.preferences ? props.preferences.id : "",
+              bits_id: props.person ? props.person.email.substring(5,9) : "",
               gender: "M",
               branch: props.preferences ? props.preferences.branch : "A1",
               status: props.preferences ? props.preferences.status : "PS",
@@ -345,6 +345,7 @@ export default class RegForm extends Component {
                 </div>
                 
                 <div className="special w-3/4"><input
+                  disabled
                   type="text"
                   value={this.state.customer.bits_id}
                   onChange={this.handleBitsIdChanged.bind(this)}

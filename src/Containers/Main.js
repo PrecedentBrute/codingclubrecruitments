@@ -59,13 +59,14 @@ const Main = () => {
         if (res.status === 200) {
           const cookies = new Cookies();
           const profile = {
-          email: res.data.email,
-          name: res.data.name,
-          csrf: cookies.get('csrftoken'),
-          testSubmitted: res.data.exam_given,
-        }
-        setPerson(profile);
-        setLoggedIn(true);
+            email: res.data.email,
+            name: res.data.name,
+            csrf: cookies.get('csrftoken'),
+            testSubmitted: res.data.exam_given,
+          }
+          setPerson(profile);
+          setLoggedIn(true);
+          window.alert("Welcome " + res.data.name + "!");  
   
       }
     }).catch(err => {
