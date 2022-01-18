@@ -44,7 +44,16 @@ input[type="radio"]:checked:after {
 .button{
   /* box-shadow: 0px 0px 10px 10px rgba(255, 255, 255, 0.3); */
   background-color: rgba(255, 255, 255, 0.11);
-  border: 2px solid rgba(55, 255, 255, 0.5);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .opt1{

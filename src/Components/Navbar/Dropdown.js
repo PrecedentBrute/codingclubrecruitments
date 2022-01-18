@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Dropdown.css';
 import axios from 'axios';
 
@@ -38,24 +38,24 @@ const Dropdown = (props) => {
       }
       onClick={props.toggle}
     >
-      <Link to='/' className='p-4'>
+      <NavLink to='/' exact={true} activeClassName='activeStyled' className='p-4'>
         Home
-      </Link>
-      {/* <Link to='/projects' className='p-4'>
+      </NavLink>
+      {/* <NavLink to='/projects' activeClassName='activeStyled' className='p-4'>
         Our Projects
-      </Link> */}
-      <Link to='/test' className='p-4'>
-        Test
-      </Link>
-      {/* <Link to='/preferences' className='p-4'>
+      </NavLink> */}
+      <NavLink to='/test' activeClassName='activeStyled' className='p-4'>
+        Recruitment Test
+      </NavLink>
+      {/* <NavLink to='/preferences' activeClassName='activeStyled' className='p-4'>
         Preferences
-      </Link> */}
-      { !props.loggedIn ? <a href="https://accounts.google.com/o/oauth2/v2/auth?scope=https%3A//www.googleapis.com/auth/userinfo.profile+https%3A//www.googleapis.com/auth/userinfo.email&access_type=offline&include_granted_scopes=true&response_type=code&state=state_parameter_passthrough_value&redirect_uri=https%3A//api.cc-recruitments.tech/rest-auth/google/callback/&client_id=754009890523-f8r6n04j7k09grmf1auf8c872a7j1nbm.apps.googleusercontent.com&hd=pilani.bits-pilani.ac.in" className='p-4'>
+      </NavLink> */}
+      { !props.loggedIn ? <a href="https://accounts.google.com/o/oauth2/v2/auth?scope=https%3A//www.googleapis.com/auth/userinfo.profile+https%3A//www.googleapis.com/auth/userinfo.email&access_type=offline&include_granted_scopes=true&response_type=code&state=state_parameter_passthrough_value&redirect_uri=https%3A//api.cc-recruitments.tech/rest-auth/google/callback/&client_id=754009890523-f8r6n04j7k09grmf1auf8c872a7j1nbm.apps.googleusercontent.com&hd=pilani.bits-pilani.ac.in" activeClassName='activeStyled' className='p-4'>
         Login
-      </a> : <div className="mob-dd"> <Link to='/preferences' className='p-4'>
-        Preferences
-      </Link>
-      <Link to='/' onClick={logout} className='p-4'> Logout </Link> </div>}
+      </a> : <div className="mob-dd"> <NavLink to='/preferences' activeClassName='activeStyled' className='p-4'>
+        Profile
+      </NavLink>
+      <NavLink to='/' onClick={logout} className='p-4'> Logout </NavLink> </div>}
       
     </div>
   );

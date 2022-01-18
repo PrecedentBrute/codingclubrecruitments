@@ -1,6 +1,7 @@
 import React, { useState , useEffect } from "react";
 import axios from "axios";
 import "./Exam.css";
+import ReactHtmlParser from "react-html-parser";
 
 const Exam = (props) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -29,11 +30,13 @@ const Exam = (props) => {
     }, 1000);
   }
 
-  useEffect(() => {
-    if (time < 0) {
-      handleSubmitButton();
-    }
-   }, [time]);
+  
+
+  // useEffect(() => {
+  //   if (time < 0) {
+  //     handleSubmitButton();
+  //   }
+  //  }, [time]);
 
    useEffect(() => {
       const config = {
@@ -162,7 +165,7 @@ const Exam = (props) => {
 
   if (questions !== null) {
     toRender = (
-      <div className="z-10 flex px-5 justify-center items-center ExamComp text-white">
+      <div className="z-10 flex px-2 md:px-5 justify-center items-center ExamComp text-white">
       
      {!submitted ?  (
         <div className="flex flex-col" style={{flexShrink:"12", alignItems:"center" , width: "100%"}}>
@@ -198,12 +201,12 @@ const Exam = (props) => {
 
         <div className="w-3/4 ques-panel" >
           
-          <div className="flex flex-col items-start w-full p-10">
+          <div className="flex flex-col items-start w-full p-4 md:p-10">
             <h4 className="mt-10 text-xl text-white font-bold">
               Question {currentQuestion + 1} of {questions.length}
             </h4>
-            <div className="mt-4 text-2xl text-white font-bold">
-                  {questions[currentQuestion].qtxt}
+           <div className="mt-4 text-xl md:text-2xl text-white font-bold">
+                  <div className="unselectable">{ReactHtmlParser(questions[currentQuestion].qtxt)}</div>
                   { questions[currentQuestion]["question_file.url"] !== 'null'  ? (
                     <div className="optionDiv flex justify-around items-center m-2 p-4">
                       <img src={questions[currentQuestion]["question_file.url"]} />
@@ -256,7 +259,7 @@ const Exam = (props) => {
             )}
           </div>
 
-          <div className="flex justify-between w-full mt-4 text-white">
+          <div className="flex justify-between w-full mt-4 text-white mb-4">
             <button
               onClick={handlePrevious}
               className="w-1/2 m-1 py-3 text-xl button bg-black rounded-lg"

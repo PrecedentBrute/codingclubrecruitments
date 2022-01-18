@@ -14,15 +14,8 @@
     grid-row-end: 5;
 
 }
-.topbarr > div > a:focus{
-    /* text-decoration: underline; */
-       border-bottom: 3px solid white;
-   }
 
-   .p-4:active{
-    border-bottom: 3px solid white;
-   }
-
-   .p-4:focus{
-    border-bottom: 3px solid white;
-   }
+.activeStyled{
+    font-weight: bold;
+    letter-spacing: 2px;
+}
