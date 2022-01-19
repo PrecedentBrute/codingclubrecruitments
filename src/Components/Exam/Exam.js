@@ -14,6 +14,7 @@ const Exam = (props) => {
     return initialValue || [];
   });
 
+  const [divSelect, setdivSelect] = useState([false,false,false,false]);
   const [selectedOptions2, setSelectedOptions2] = useState([]);
   const [submitted, setSubmitted] = useState(false);
   const [time,setTime] = useState(3600);
@@ -58,6 +59,10 @@ const Exam = (props) => {
     });
    }, [])
 
+  //  const handledivSelect = (index) => {
+  //    setdivSelect();
+  //  }
+
   const handleAnswerOption = (answer,id) => {
     // setSelectedOptions([
     //   (selectedOptions[currentQuestion] = { answertext: answer, qid:id }),
@@ -86,6 +91,7 @@ const Exam = (props) => {
   };
 
   const handleNext = () => {
+    setFibanswer("");
     const nextQues = currentQuestion + 1;
     nextQues < questions.length && setCurrentQuestion(nextQues);
     setFibanswer(submittedAnswers[nextQues].answertext ? submittedAnswers[nextQues].answertext : "");
@@ -185,8 +191,8 @@ const Exam = (props) => {
           <div className={questions[currentQuestion].hint_text.length===0 ? "resources hidehint" : "resources"}>
                   <p>{questions[currentQuestion].hint_text}</p>
                   <br></br>
-              <p><a href={questions[currentQuestion].hint_link} target="_blank" className="text-blue-500">{questions[currentQuestion].hint_link==="" ? null : "Resource Link"}</a></p>
-              </div>
+              {<p><a href={questions[currentQuestion].hint_link} target="_blank" className="text-blue-500">{questions[currentQuestion].hint_link==="" ? null : "Resource Link"}</a></p>}
+                            </div>
         </div>      
                   ) : (<div></div>)}
       
@@ -234,17 +240,17 @@ const Exam = (props) => {
                 <div
                   key={index}
                   className="flex items-center w-full py-4 pl-5 m-2 ml-0 space-x-2 border-2 cursor-pointer bg-white/5 border-white/10 rounded-xl"
-                >
+                  >
                   <input
                     type="radio"
                     name={answer.text}
                     value={answer.text}
                     onChange={(e) => handleMCQAnswerOption(index,questions[currentQuestion].id)}
-                    checked={
+                    checked={(
                       selectedOptions[currentQuestion]
                         ? index ===
                           selectedOptions[currentQuestion].answer
-                        : false
+                        : false)
                     }
                     className="w-6 h-6 card bg-black"
                   />
