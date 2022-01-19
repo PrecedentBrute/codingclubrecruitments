@@ -2,8 +2,20 @@ import axios from 'axios';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import "./Navbar.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Navbar = (props) => {
+
+  const logoutMessage = () => toast('Logged out', {
+position: "bottom-right",
+autoClose: 3000,
+hideProgressBar: false,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+});
 
   const logout = () => {
 
@@ -22,7 +34,7 @@ const Navbar = (props) => {
         console.log(error);
       });
     }
-    window.alert("Logged out");
+    logoutMessage();
     props.toggleLoggedIn(false);
     props.toggleWantsIn(false);
     //code to logout
@@ -34,7 +46,7 @@ const Navbar = (props) => {
     >
       <NavLink to='/' className='flex pl-8 items-center'>
         <img style={{filter:"drop-shadow(0px 0px 15px rgba(255, 0, 0, 1))"} } width="50" height="50" src="/assets/logo.svg" className="" alt="logo" />
-        <p className="mt-0 ml-3 headline" style={{filter:"drop-shadow(5px 5px 10px rgba(255, 0, 0, 1))"} }>CODING CLUB</p>
+        <p className="mt-2 ml-3 headline" style={{ filter: "drop-shadow(5px 5px 10px rgba(255, 0, 0, 1))", lineHeight:"60%"} }>CODING CLUB<br></br><span className='text-sm md:text-xl'>RECRUITMENTS</span></p>
       </NavLink>
       <div className='px-4 cursor-pointer md:hidden' onClick={props.toggle}>
         <svg
@@ -69,6 +81,7 @@ const Navbar = (props) => {
       </NavLink> <NavLink to='/' onClick={logout} className='p-4'> Logout </NavLink></div>}
       
       </div>
+      
     </nav>
   );
 };

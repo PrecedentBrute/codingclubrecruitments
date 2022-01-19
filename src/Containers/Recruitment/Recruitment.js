@@ -36,7 +36,7 @@ const Recruitment = (props) => {
               onClick={toggleShow}
               disabled={!props.loggedIn}
       >
-        Start test
+        {props.person && props.person.time<3600 ? "Resume Test" : "Start Test"}
       </button>
       </Fade>
       
