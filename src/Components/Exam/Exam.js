@@ -86,13 +86,14 @@ const Exam = (props) => {
   };
 
   const handleNext = () => {
+    setFibanswer("");
     const nextQues = currentQuestion + 1;
     nextQues < questions.length && setCurrentQuestion(nextQues);
     setFibanswer(submittedAnswers[nextQues].answertext ? submittedAnswers[nextQues].answertext : "");
   };
 
   const handleSubmitConfirmation = () => {
-    if (window.confirm('Do you really want to submit? This action is irreversible.')) {
+    if (window.confirm('Do you really want to submit? This action is IRREVERSIBLE.')) {
            handleSubmitButton();
        } else {
             // Do nothing!
@@ -128,6 +129,7 @@ const Exam = (props) => {
   };
 
   const handleNavigation = (e) => {
+    setFibanswer("");
     setCurrentQuestion(e);
   }
 
@@ -273,7 +275,7 @@ const Exam = (props) => {
                       ? handleSubmitConfirmation
                       : handleNext
                   }
-                  className={currentQuestion + 1 === questions.length ? "w-1/2 m-1 ml-10 text-xl py-3 button bg-green-700 rounded-lg" : "w-1/2 m-1 ml-10 text-xl py-3 button bg-black rounded-lg"}
+                  className={currentQuestion + 1 === questions.length ? "w-1/2 m-1 ml-10 text-xl py-3 button greenborder rounded-lg" : "w-1/2 m-1 ml-10 text-xl py-3 button bg-black rounded-lg"}
             >
               {currentQuestion + 1 === questions.length ? "Submit" : "Next"}
             </button>

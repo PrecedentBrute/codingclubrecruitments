@@ -47,6 +47,10 @@ input[type="radio"]:checked:after {
   border: 2px solid rgb(255, 255, 255);
 }
 
+.greenborder{
+  border: 2px solid rgb(0, 172, 0) !important;
+}
+
 .unselectable {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
