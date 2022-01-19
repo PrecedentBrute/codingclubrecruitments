@@ -69,8 +69,8 @@ input[type="radio"]:checked:after {
 
 .opt11 {
     display: inline-block;
-    width: 2.9vw;
-    height: 2.9vw;
+    width: 2.7vw;
+    height: 2.7vw;
     background-color: #ff0000;
     border-radius: 50%;
     margin-right: 1vw;
@@ -78,8 +78,8 @@ input[type="radio"]:checked:after {
 
 .opt12 {
   display: inline-block;
-  width: 2.9vw;
-  height: 2.9vw;
+  width: 2.7vw;
+  height: 2.7vw;
   background-color: #51ff00;
   border-radius: 50%;
   margin-right: 1vw;
@@ -109,14 +109,14 @@ input[type="radio"]:checked:after {
   flex-wrap: wrap;
   justify-content: space-around;
   /* width: 100%; */
-  row-gap: 1vw;
+  row-gap: 0.5vw;
   column-gap: 5px;
   flex-shrink: 12;
   /* border-radius: 15px;
   border: 1px solid black; */
   align-content: center;
   padding: 5px;
-  margin-top: 1vw;
+  margin-top: 0.2vw;
   /* box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
     background: hsl(0deg 51% 53% / 26%);
     border: 1px solid rgba(255, 255, 255, 0.5);
@@ -236,16 +236,26 @@ input[type="radio"]:checked:after {
 @media only screen and (min-width: 1100px) and (max-width: 1400px) {
 
   .opt1 , .opt2 {
-    width: 2.9vw;
-    height: 2.9vw;
+    width: 2.7vw;
+    height: 2.7vw;
     text-align: center;
     padding-top: 3px;
   }
+  
 }
 
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 1400px) and (max-width : 2400px) {
   .opt1 , .opt2{
     text-align: center;
     padding-top: 5px;
+  }
+  .question-nav-child{
+    flex-basis: 16%;
+  }
+}
+
+@media only screen and (min-width: 1900px) {
+  .ques-num{
+    font-size:x-large;
   }
 }
