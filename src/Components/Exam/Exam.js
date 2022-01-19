@@ -168,7 +168,7 @@ const Exam = (props) => {
       <div className="z-10 flex px-2 md:px-5 justify-center items-center ExamComp text-white">
       
      {!submitted ?  (
-        <div className="flex flex-col" style={{flexShrink:"12", alignItems:"center" , width: "100%"}}>
+        <div className="flex flex-col" style={{flexShrink:"30", alignItems:"center" , width: "100%"}}>
             <div className="master-ques">
                       <div className="timer"> Time left - {(Math.floor(time/60))/10 < 1 ? `0${Math.floor(time/60)}` : Math.floor(time/60) } : {(time%60)/10 < 0 ? `0${time % 60}` : time % 60 } </div>
                           <div className="question-nav">
@@ -177,7 +177,7 @@ const Exam = (props) => {
                                 { (selectedOptions2[ques.sno] == null && submittedAnswers[ques.sno] == null ) ? (<div className="opt1"><div onClick={() =>  handleNavigation(ques.sno)} className="cursor-pointer ques-num"> Q{ques.sno+1}</div></div>) : ( <div className="opt2"><div onClick={() =>  handleNavigation(ques.sno)} className="cursor-pointer ques-num"> Q{ques.sno+1}</div></div>) }
                             </div> ))}
                           </div>
-                      <div > 
+                      <div style={{fontSize : "medium"}}> 
                         <div className="flex items-center mb-2 mt-2"><div className="opt11"></div> <p>Unanswered</p></div>
                         <div className="flex items-center mb-2 mt-2"><div className="opt12"></div> <p>Answered</p></div>  
                       </div>  
