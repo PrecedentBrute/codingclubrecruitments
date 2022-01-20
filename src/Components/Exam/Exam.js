@@ -59,9 +59,9 @@ const Exam = (props) => {
     });
    }, [])
 
-  //  const handledivSelect = (index) => {
-  //    setdivSelect();
-  //  }
+   const handledivSelect = (index) => {
+     setdivSelect([false,true,false,false]);
+   }
 
   const handleAnswerOption = (answer,id) => {
     // setSelectedOptions([
@@ -240,6 +240,7 @@ const Exam = (props) => {
                 <div
                   key={index}
                   className="flex items-center w-full py-4 pl-5 m-2 ml-0 space-x-2 border-2 cursor-pointer bg-white/5 border-white/10 rounded-xl"
+                  onClick={handledivSelect(index)}
                   >
                   <input
                     type="radio"
@@ -250,7 +251,7 @@ const Exam = (props) => {
                       selectedOptions[currentQuestion]
                         ? index ===
                           selectedOptions[currentQuestion].answer
-                        : false)
+                        : false) || divSelect[index]
                     }
                     className="w-6 h-6 card bg-black"
                   />
