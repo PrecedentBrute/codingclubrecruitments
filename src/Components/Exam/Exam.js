@@ -60,7 +60,8 @@ const Exam = (props) => {
    }, [])
 
    const handledivSelect = (index) => {
-     setdivSelect([false,true,false,false]);
+     setdivSelect([divSelect[index] = true]);
+     setdivSelect([...divSelect]);
    }
 
   const handleAnswerOption = (answer,id) => {
@@ -98,7 +99,7 @@ const Exam = (props) => {
   };
 
   const handleSubmitConfirmation = () => {
-    if (window.confirm('Do you want to submit?')) {
+    if (window.confirm('Do you really want to submit? This action is irreversible.')) {
            handleSubmitButton();
        } else {
             // Do nothing!
@@ -174,25 +175,26 @@ const Exam = (props) => {
       <div className="z-10 flex px-2 md:px-5 justify-center items-center ExamComp text-white">
       
      {!submitted ?  (
-        <div className="flex flex-col" style={{flexShrink:"12", alignItems:"center" , width: "100%"}}>
+        <div className="flex flex-col" style={{flexShrink:"30", alignItems:"center" , width: "100%"}}>
             <div className="master-ques">
-                      <div className="timer"> Time left - {Math.floor(time / 60)} : {(time %60)/10 === 0 ? `0 ${time % 60}` : time % 60 } </div>
+                      <div className="timer"> Time left - {(Math.floor(time/60))/10 < 1 ? `0${Math.floor(time/60)}` : Math.floor(time/60) } : {(time%60)/10 < 0 ? `0${time % 60}` : time % 60 } </div>
                           <div className="question-nav">
                             { questions.map((ques) => (  
                               <div className="question-nav-child">
                                 { (selectedOptions2[ques.sno] == null && submittedAnswers[ques.sno] == null ) ? (<div className="opt1"><div onClick={() =>  handleNavigation(ques.sno)} className="cursor-pointer ques-num"> Q{ques.sno+1}</div></div>) : ( <div className="opt2"><div onClick={() =>  handleNavigation(ques.sno)} className="cursor-pointer ques-num"> Q{ques.sno+1}</div></div>) }
                             </div> ))}
                           </div>
-                      <div > 
+                      <div style={{fontSize : "medium"}}> 
                         <div className="flex items-center mb-2 mt-2"><div className="opt11"></div> <p>Unanswered</p></div>
                         <div className="flex items-center mb-2 mt-2"><div className="opt12"></div> <p>Answered</p></div>  
                       </div>  
               </div>
-          <div className={questions[currentQuestion].hint_text.length===0 ? "resources hidehint" : "resources"}>
-                  <p>{questions[currentQuestion].hint_text}</p>
+            <div className="resources">
+                  <p className="font-bold">Resources</p>
+                  <p>{questions[0].hint_text}</p>
                   <br></br>
-              {<p><a href={questions[currentQuestion].hint_link} target="_blank" className="text-blue-500">{questions[currentQuestion].hint_link==="" ? null : "Resource Link"}</a></p>}
-                            </div>
+              <p><a href={questions[0].hint_link} target="_blank" className="text-blue-500">{questions[currentQuestion].hint_link==="" ? null : "Resource Link"}</a></p>
+              </div>
         </div>      
                   ) : (<div></div>)}
       
@@ -211,7 +213,7 @@ const Exam = (props) => {
             <h4 className="mt-10 text-xl text-white font-bold">
               Question {currentQuestion + 1} of {questions.length}
             </h4>
-           <div className="mt-4 text-xl md:text-2xl text-white font-bold">
+           <div className="mt-4 text-base md:text-xl text-white font-bold">
                   <div className="unselectable">{ReactHtmlParser(questions[currentQuestion].qtxt)}</div>
                   { questions[currentQuestion]["question_file.url"] !== 'null'  ? (
                     <div className="optionDiv flex justify-around items-center m-2 p-4">
@@ -240,7 +242,6 @@ const Exam = (props) => {
                 <div
                   key={index}
                   className="flex items-center w-full py-4 pl-5 m-2 ml-0 space-x-2 border-2 cursor-pointer bg-white/5 border-white/10 rounded-xl"
-                  onClick={handledivSelect(index)}
                   >
                   <input
                     type="radio"
@@ -274,12 +275,12 @@ const Exam = (props) => {
               Previous
             </button>
             <button
-              onClick={
-                currentQuestion + 1 === questions.length
-                  ? handleSubmitConfirmation
-                  : handleNext
-              }
-              className="w-1/2 m-1 ml-10 text-xl py-3 button bg-black rounded-lg"
+                  onClick={
+                    currentQuestion + 1 === questions.length
+                      ? handleSubmitConfirmation
+                      : handleNext
+                  }
+                  className={currentQuestion + 1 === questions.length ? "w-1/2 m-1 ml-10 text-xl py-3 button bg-green-700 rounded-lg" : "w-1/2 m-1 ml-10 text-xl py-3 button bg-black rounded-lg"}
             >
               {currentQuestion + 1 === questions.length ? "Submit" : "Next"}
             </button>

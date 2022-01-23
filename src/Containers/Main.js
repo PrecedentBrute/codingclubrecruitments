@@ -10,8 +10,20 @@ import RegForm from '../Components/RegForm/RegForm';
 import Slide from 'react-reveal/Slide';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Main = () => {
+
+  const loggedInMessage = (name) => toast.success(`Welcome ${name}!`, {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
 
   //login state
 
@@ -56,6 +68,7 @@ const Main = () => {
 
         console.log(res);
         
+        
         if (res.status === 200) {
           const cookies = new Cookies();
           const profile = {
@@ -63,10 +76,11 @@ const Main = () => {
             name: res.data.name,
             csrf: cookies.get('csrftoken'),
             testSubmitted: res.data.exam_given,
+            time: res.data.time
           }
           setPerson(profile);
           setLoggedIn(true);
-          window.alert("Welcome " + res.data.name + "!");  
+          loggedInMessage(res.data.name);
   
       }
     }).catch(err => {
@@ -141,8 +155,20 @@ const Main = () => {
         
         <Slide top>
             <Navbar toggle={toggle} loggedIn={loggedIn} toggleLoggedIn={toggleLoggedIn} person={person} toggleWantsIn={toggleWantsIn}/>
-            <Dropdown isOpen={isOpen} toggle={toggle} loggedIn={loggedIn} toggleLoggedIn={toggleLoggedIn} person={person} toggleWantsIn={toggleWantsIn}/>
+            <Dropdown isOpen={isOpen} toggle={toggle} loggedIn={loggedIn} toggleLoggedIn={toggleLoggedIn} person={person} toggleWantsIn={toggleWantsIn} />    
           </Slide>
+          <ToastContainer
+            position="bottom-right"
+            autoClose={4000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+            />
         <Switch>
           <Route exact path="/" component={Home} />
             <Route path="/preferences" render={() => <RegForm loggedIn={loggedIn} person={person} preferences={preferences}/>} />

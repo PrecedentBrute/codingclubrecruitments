@@ -102,8 +102,26 @@
   transform: rotateX(-90deg) translateZ(8rem);
 }
 
-/* img {
+img {
   height: 100%;
   width: 100%;
   cursor: pointer;
-} */
+}
+
+.cube-carousel-display{
+  display: block;
+}
+
+.cube-swiper-display{
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .cube-carousel-display {
+    display: none;
+  }
+  .cube-swiper-display {
+    display: block;
+    padding:2%;
+  }
+}

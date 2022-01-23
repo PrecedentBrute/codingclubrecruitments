@@ -38,8 +38,14 @@ const Recruitment = (props) => {
                 </div>
               </div>
 
-              <button className={buttonClass} onClick={toggleShow}>
-                Start test
+              <button
+                className={buttonClass}
+                onClick={toggleShow}
+                
+              >
+                {props.person && props.person.time < 3600
+                  ? "Resume Test"
+                  : "Start Test"}
               </button>
             </Fade>
           </div>
@@ -48,5 +54,7 @@ const Recruitment = (props) => {
     </div>
   );
 };
+
+{/*disabled={!props.loggedIn}*/}
 
 export default Recruitment;

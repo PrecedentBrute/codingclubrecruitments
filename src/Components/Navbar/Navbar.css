@@ -3,6 +3,11 @@
     background-color: rgba(0,0,0,0.35);
 }
 
+.nav-position{
+    position:sticky;
+    top:0;
+}
+
 .headline {
     font-size: xx-large;
 }
@@ -13,6 +18,10 @@
 
 .activeStyle{
     border-bottom: 3px solid white;
+}
+
+.cc-logo{
+    height:10vh;
 }
 
 @media only screen and (max-width: 770px) {

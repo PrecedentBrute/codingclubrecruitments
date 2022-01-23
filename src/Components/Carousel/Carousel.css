@@ -1,19 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Birthstone&display=swap");
 .achievement {
   font-family: "Birthstone", cursive;
+  font-size:64px;
 }
 
 .container1 {
-  margin: 0 auto; 
+  margin: 0 auto;
   width: 20rem;
   height: 15rem;
   -webkit-perspective: 60rem;
-          perspective: 60rem;
+  perspective: 60rem;
 }
 
 .carousel {
   -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
+  transform-style: preserve-3d;
   -webkit-transition: 1s;
   transition: 1s;
 }
@@ -32,6 +33,20 @@
   transition: 1s;
 }
 
+.thumbnail-new{
+  height: 15rem;
+  width: 15rem;
+  opacity: 50%;
+  border-radius: 5%;
+  border: 2px solid black;
+  transition: 1s;
+}
+
+.thumbnail-new:hover{
+  cursor: pointer;
+  opacity: 100%;
+}
+
 .thumbnail:hover {
   cursor: pointer;
   opacity: 100%;
@@ -39,36 +54,67 @@
 
 .rotateY {
   -webkit-transform: rotateY(60deg);
-          transform: rotateY(60deg);
+  transform: rotateY(60deg);
 }
 
 .a1 {
   -webkit-transform: rotateY(0deg) translateZ(20rem);
-          transform: rotateY(0deg) translateZ(20rem);
+  transform: rotateY(0deg) translateZ(20rem);
 }
 
 .b1 {
   -webkit-transform: rotateY(60deg) translateZ(20rem);
-          transform: rotateY(60deg) translateZ(20rem);
+  transform: rotateY(60deg) translateZ(20rem);
 }
 
 .c1 {
   -webkit-transform: rotateY(120deg) translateZ(20rem);
-          transform: rotateY(120deg) translateZ(20rem);
+  transform: rotateY(120deg) translateZ(20rem);
 }
 
 .d1 {
   -webkit-transform: rotateY(180deg) translateZ(20rem);
-          transform: rotateY(180deg) translateZ(20rem);
+  transform: rotateY(180deg) translateZ(20rem);
 }
 
 .e1 {
   -webkit-transform: rotateY(240deg) translateZ(20rem);
-          transform: rotateY(240deg) translateZ(20rem);
+  transform: rotateY(240deg) translateZ(20rem);
 }
 
 .f1 {
   -webkit-transform: rotateY(300deg) translateZ(20rem);
-          transform: rotateY(300deg) translateZ(20rem);
+  transform: rotateY(300deg) translateZ(20rem);
+}
+
+.car-display {
+  display:flex;
+}
+
+.swiper-display {
+  display: none;
+}
+
+@media only screen and (max-width: 1030px) {
+  .car-display {
+    display: none;
+    visibility: hidden;
+  }
+  .swiper-display {
+    display: block;
+    padding:2%;
+  }
+}
+
+@media only screen and (max-width: 770px){
+  .achievement{
+    font-size: 48px;
+  }
+}
+
+@media only screen and (max-width: 400px){
+  .achievement{
+    font-size: 32px;
+  }
 }
 /*# sourceMappingURL=Carousel.css.map */

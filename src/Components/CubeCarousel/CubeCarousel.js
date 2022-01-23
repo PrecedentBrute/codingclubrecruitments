@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Zoom from "react-reveal/Zoom";
 import "./CubeCarousel.css";
+import { Swiper, SwiperSlide } from "swiper/react/swiper-react";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import "swiper/swiper.min.css";
+import "swiper/modules/navigation/navigation.min.css";
+import "swiper/modules/pagination/pagination.min.css";
+import "swiper/modules/scrollbar/scrollbar.min.css";
 
 const CubeCarousel = () => {
   const [clicked, setClicked] = useState(false);
@@ -12,12 +18,12 @@ const CubeCarousel = () => {
 
   return (
     <div
-      className="cube-carousel-position w-screen"
+      className="cube-carousel-position w-screen relative z-10"
       style={{ marginBottom: "100px" }}
     >
-      <h1 className="achievement pl-8 text-7xl text-center">EVENTS</h1>
+      <h1 className="achievement pl-8 text-7xl text-center mb-10">EVENTS</h1>
       {!clicked ? (
-        <div className=" scene m-auto pt-40 scene w-20 h-20">
+        <div className="cube-carousel-display scene m-auto pt-40 scene w-20 h-20">
           <div className="cube cube-animation relative">
             <div className="face a absolute  text-center  bg-red-500 text-white front">
               <img
@@ -85,9 +91,28 @@ const CubeCarousel = () => {
               src="https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MzJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60"
               alt="wall"
             />
-            </Zoom>
+          </Zoom>
         </div>
       ) : null}
+      <div className="cube-swiper-display">
+        <Swiper
+          // install Swiper modules
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          spaceBetween={50}
+          slidesPerView={3}
+          navigation
+          pagination={{ clickable: true }}
+          scrollbar={{ draggable: true }}
+          onSwiper={(swiper) => console.log(swiper)}
+          onSlideChange={() => console.log("slide change")}
+        >
+          <SwiperSlide>Slide 1</SwiperSlide>
+          <SwiperSlide>Slide 2</SwiperSlide>
+          <SwiperSlide>Slide 3</SwiperSlide>
+          <SwiperSlide>Slide 4</SwiperSlide>
+          ...
+        </Swiper>
+      </div>
     </div>
   );
 };

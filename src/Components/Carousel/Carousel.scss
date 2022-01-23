@@ -10,10 +10,10 @@
   height: 15rem;
   perspective: 60rem;
 }
-.carousel-position { 
-  position: relative;
-  top: 100vh; /*00vh*/
-}
+// .carousel-position { 
+//   position: absolute;
+//   top: 300vh;
+// }
 
 .carousel {
   transform-style: preserve-3d;
@@ -64,4 +64,21 @@
 
 .f1 {
   transform: rotateY(300deg) translateZ(20rem);
+}
+
+.carousel-display{
+  display: block;
+}
+
+.swiper{
+  display: none;
+}
+
+@media only screen and (max-width: 100px) {
+  .carousel-display{
+    display: none;
+  }
+  .swiper{
+    display: block;
+  }
 }
