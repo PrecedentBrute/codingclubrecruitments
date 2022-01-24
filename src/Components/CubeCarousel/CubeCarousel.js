@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import Zoom from "react-reveal/Zoom";
 import "./CubeCarousel.css";
 import { Swiper, SwiperSlide } from "swiper/react/swiper-react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import { Navigation, Pagination, Scrollbar, A11y,EffectCube } from "swiper";
 import "swiper/swiper.min.css";
+import "swiper/modules/effect-cube/effect-cube.min.css"
 import "swiper/modules/navigation/navigation.min.css";
 import "swiper/modules/pagination/pagination.min.css";
 import "swiper/modules/scrollbar/scrollbar.min.css";
@@ -97,19 +98,47 @@ const CubeCarousel = () => {
       <div className="cube-swiper-display">
         <Swiper
           // install Swiper modules
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          modules={[Navigation, Pagination, A11y,EffectCube]}
+          effect="cube"
           spaceBetween={50}
-          slidesPerView={3}
+          slidesPerView={1}
           navigation
           pagination={{ clickable: true }}
-          scrollbar={{ draggable: true }}
           onSwiper={(swiper) => console.log(swiper)}
           onSlideChange={() => console.log("slide change")}
         >
-          <SwiperSlide>Slide 1</SwiperSlide>
-          <SwiperSlide>Slide 2</SwiperSlide>
-          <SwiperSlide>Slide 3</SwiperSlide>
-          <SwiperSlide>Slide 4</SwiperSlide>
+          <SwiperSlide>
+            <img
+              onClick={expandImage}
+              src="https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MzJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60"
+              alt="wall"
+              style={{ height: "16rem", width: "32rem" }}
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              onClick={expandImage}
+              src="https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MzJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60"
+              alt="wall"
+              style={{ height: "16rem", width: "32rem" }}
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              onClick={expandImage}
+              src="https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MzJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60"
+              alt="wall"
+              style={{ height: "16rem", width: "32rem" }}
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              onClick={expandImage}
+              src="https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MzJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60"
+              alt="wall"
+              style={{ height: "16rem", width: "32rem" }}
+            />
+          </SwiperSlide>
           ...
         </Swiper>
       </div>

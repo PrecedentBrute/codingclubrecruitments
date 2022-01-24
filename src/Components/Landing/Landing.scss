@@ -107,7 +107,7 @@ $time-4: 200s;
   background-blend-mode: screen;
   background-size: cover;
   filter: grayscale(100%);
-  z-index: -1;
+  z-index: 5;
 }
 
 .particle, .particle:after {

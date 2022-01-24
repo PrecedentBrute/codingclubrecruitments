@@ -34,8 +34,8 @@
 }
 
 .thumbnail-new{
-  height: 15rem;
-  width: 15rem;
+  height: 20rem;
+  width: 30rem;
   opacity: 50%;
   border-radius: 5%;
   border: 2px solid black;
@@ -91,6 +91,12 @@
   display:flex;
 }
 
+.swiper-slide{
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+}
+
 .swiper-display {
   display: none;
 }
@@ -110,11 +116,22 @@
   .achievement{
     font-size: 48px;
   }
+  .thumbnail-new{
+    height:16rem;
+    width:24rem;
+  }
 }
 
 @media only screen and (max-width: 400px){
   .achievement{
     font-size: 32px;
   }
+  .thumbnail-new{
+    height:10rem;
+    width:15rem;
+  }
+  /* .swiper-button-next{
+    display:none;
+  } */
 }
 /*# sourceMappingURL=Carousel.css.map */

@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./Carousel.css";
 import { Swiper, SwiperSlide } from "swiper/react/swiper-react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import {EffectCards} from 'swiper';
 import "swiper/swiper.min.css";
+import "swiper/modules/effect-cards/effect-cards.min.css";
 import "swiper/modules/navigation/navigation.min.css";
 import "swiper/modules/pagination/pagination.min.css";
 import "swiper/modules/scrollbar/scrollbar.min.css";
@@ -118,12 +120,12 @@ const Carousel = () => {
       <div className="swiper-display">
         <Swiper
           // install Swiper modules
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          modules={[Navigation, Pagination, A11y,EffectCards]}
+          effect="cards"
           spaceBetween={50}
-          slidesPerView={3}
+          slidesPerView={1}
           navigation
           pagination={{ clickable: true }}
-          scrollbar={{ draggable: true }}
           onSwiper={(swiper) => console.log(swiper)}
           onSlideChange={() => console.log("slide change")}
         >
