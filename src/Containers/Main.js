@@ -199,7 +199,7 @@ const Main = () => {
             theme="dark"
             />
         <Switch>
-          <Route exact path="/" component={Home} loggedIn={loggedIn} />
+            <Route exact path="/" render={() => <Home loggedIn={loggedIn}/>}/>
             <Route path="/preferences" render={() => <RegForm loggedIn={loggedIn} person={person} preferences={preferences}/>} />
           <Route path="/projects" component={OurProjects} />
           <Route path="/test" render={() => <Recruitment loggedIn = {loggedIn} person={person} toggleStarted={toggleTestStarted} testStarted={testStarted} />} />

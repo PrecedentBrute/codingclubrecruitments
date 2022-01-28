@@ -37,9 +37,7 @@ const Landing = (props) => {
   </a>
   
   if (props.loggedIn) {
-    toRender = <NavLink to='/test'>
-        APPLY
-      </NavLink>
+    toRender = null
   }
 
   return (

@@ -14,8 +14,7 @@ const Recruitment = (props) => {
   if (!props.loggedIn) {
     buttonClass += " cursor-not-allowed opacity-50 disabledButton";
   }
-  
-    
+      
   return (
     <div>
     <div className="recruitmentDiv rounded-lg">
