@@ -6,55 +6,61 @@ import 'react-reorderable-list/dist/index.css'
 import './RegForm.css';
 import Login from '../Login/Login';
 
+
 export default class RegForm extends Component { 
 
   constructor(props) {
-    console.log(props);
+    const preferences = JSON.parse(localStorage.getItem("preferences"));
+    const person = JSON.parse(localStorage.getItem("person"));
 
     super(props);
 
     let newPrList = null;
 
-    if (props.preferences !== null) {
+    if (preferences !== null) {
+
       newPrList = [
-        {name: this.depFullName(props.preferences.pr1), id: this.depid(props.preferences.pr1)},
-        { name: this.depFullName(props.preferences.pr2), id: this.depid(props.preferences.pr2) },
-        { name: this.depFullName(props.preferences.pr3), id: this.depid(props.preferences.pr3) },
-        { name: this.depFullName(props.preferences.pr4), id: this.depid(props.preferences.pr4) },
-        { name: this.depFullName(props.preferences.pr5), id: this.depid(props.preferences.pr5) },
-        { name: this.depFullName(props.preferences.pr6), id: this.depid(props.preferences.pr6) },
-        { name: this.depFullName(props.preferences.pr7), id: this.depid(props.preferences.pr7) }
+        { name: this.depFullName(preferences.pr1), id: this.depid(preferences.pr1) },
+        { name: this.depFullName(preferences.pr2), id: this.depid(preferences.pr2) },
+        { name: this.depFullName(preferences.pr3), id: this.depid(preferences.pr3) },
+        { name: this.depFullName(preferences.pr4), id: this.depid(preferences.pr4) },
+        { name: this.depFullName(preferences.pr5), id: this.depid(preferences.pr5) },
+        { name: this.depFullName(preferences.pr6), id: this.depid(preferences.pr6) },
+        { name: this.depFullName(preferences.pr7), id: this.depid(preferences.pr7) },
+        { name: this.depFullName(preferences.pr8), id: this.depid(preferences.pr8) }
       ];
     }
     
 
         this.state = {
             customer: {
-              name: props.person? props.person.name : "",
-              pr1: props.preferences ? props.preferences.pr1 : "ap",
-              pr2: props.preferences ? props.preferences.pr2 : "fe",
-              pr3: props.preferences ? props.preferences.pr3 : "be",
-              pr4: props.preferences ? props.preferences.pr4 : "cp",
-              pr5: props.preferences ? props.preferences.pr5 : "ui",
-              pr6: props.preferences ? props.preferences.pr6 : "gd",
-              pr7: props.preferences ? props.preferences.pr7 : "vi",
-              github: props.preferences ? props.preferences.github : "",
-              bits_email:props.person ? props.person.email : "",
-              bits_id: props.person ? props.person.email.substring(5,9) : "",
+              name: person ? person.name : "",
+              pr1: preferences ? preferences.pr1 : "ap",
+              pr2: preferences ? preferences.pr2 : "fe",
+              pr3: preferences ? preferences.pr3 : "be",
+              pr4: preferences ? preferences.pr4 : "cp",
+              pr5: preferences ? preferences.pr5 : "ui",
+              pr6: preferences ? preferences.pr6 : "gd",
+              pr7: preferences ? preferences.pr7 : "vi",
+              pr8: preferences ? preferences.pr8 : "gr",
+              github: preferences ? preferences.github : "",
+              bits_email:person ? person.email : "",
+              bits_id: person ? person.email.substring(5,9) : "",
               gender: "M",
-              branch: props.preferences ? props.preferences.branch : "A1",
-              status: props.preferences ? props.preferences.status : "PS",
-              email:"",
+              branch: preferences ? preferences.branch : "A1",
+              status: preferences ? preferences.status : "PS",
+              phone_number:  preferences ? preferences.phone_number : "",
           },
-          prlist: props.preferences ? newPrList :
+          prlist: preferences ? newPrList :
             [
               { id: 1, name: 'App Development' },
               { id: 2, name: 'Frontend Development' },
               { id: 3, name: 'Backend Development' },
               { id: 4, name: 'Competitive Coding' },
-              { id: 5, name: 'UI/UX Development' },
+              { id: 5, name: 'UI/UX Design' },
               { id: 6, name: 'Game Development' },
               { id: 7, name: 'Video Editing' },
+              { id: 8, name: 'Graphics Design' },
             ],          
           }
   }
@@ -73,9 +79,9 @@ export default class RegForm extends Component {
         
             this.setState({ customer: customer });
           }
-          handleEmailChanged(event) {
+          handlePhoneChanged(event) {
             var customer    = this.state.customer;
-            customer.email = event.target.value;
+            customer.phone_number = event.target.value;
         
             this.setState({ customer: customer });
           }
@@ -119,6 +125,7 @@ export default class RegForm extends Component {
           else if (id === 5) return "ui";
           else if (id === 6) return "gd";
           else if (id === 7) return "vi";
+          else if(id===8) return "gr";
   }
   
   depid(name) {
@@ -129,6 +136,7 @@ export default class RegForm extends Component {
     else if (name === "ui") return 5;
     else if (name === "gd") return 6;
     else if (name === "vi") return 7;
+    else if (name === "gr") return 8;
   }
   
   depFullName(shortName) {
@@ -136,9 +144,10 @@ export default class RegForm extends Component {
     else if (shortName === "fe") return "Frontend Development";
     else if (shortName === "be") return "Backend Development";
     else if (shortName === "cp") return "Competitive Coding";
-    else if (shortName === "ui") return "UI/UX Development";
+    else if (shortName === "ui") return "UI/UX Design";
     else if (shortName === "gd") return "Game Development";
     else if (shortName === "vi") return "Video Editing";
+    else if (shortName === "gr") return "Graphic Design";
   }
           
   handleButtonClicked(e) {
@@ -160,6 +169,8 @@ export default class RegForm extends Component {
           pr5: this.state.customer.pr5,
           pr6: this.state.customer.pr6,
           pr7: this.state.customer.pr7,
+          pr8: this.state.customer.pr8,
+          phone_number: this.state.customer.phone_number,
       }
       
       var config = {
@@ -177,8 +188,8 @@ export default class RegForm extends Component {
       .then(function (response) {
         if (response.status === 200) {
           window.alert("Profile updated successfully");
+          window.location.replace("https://cc-recruitments.tech/");
         }
-        console.log(response);
       })
         .catch(function (error) {
         window.alert("Something went wrong, please try again");
@@ -258,19 +269,19 @@ export default class RegForm extends Component {
                 />
               </div>
             </div>
-            {/*<div className="w-full mb-2 py-3">
+            <div className="w-full mb-2 py-3">
           
             <div className="flex items-center">
               <i className="ml-3 fill-current text-white text-xs z-10 fas fa-user"></i>
               <input
                 type="text"
-                value={this.state.customer.email}
-                onChange={this.handleEmailChanged.bind(this)}
-                placeholder="Personal Email"
+                value={this.state.customer.phone_number}
+                onChange={this.handlePhoneChanged.bind(this)}
+                placeholder="Phone Number (WhatsApp)"
                 className="-ml-2 px-8  bg-transparent w-full border-b-2 border-red-500 border-teal-600 bg-teal-400 p-8 rounded px-3 py-2 border-black text-white focus:outline-none"
               />
             </div>
-      </div>*/}
+      </div>
             <div className="w-full mb-2 py-3">
          
               <div className="flex items-center">
@@ -279,7 +290,7 @@ export default class RegForm extends Component {
                   type="text"
                   value={this.state.customer.github}
                   onChange={this.handleGithubChanged.bind(this)}
-                  placeholder="GitHub link (optional)"
+                  placeholder="GitHub Profile Link (optional)"
                   className="-ml-2 px-8  bg-transparent w-full border-b-2 border-red-500 border-teal-600 bg-teal-400 p-8 rounded px-3 py-2 border-black text-white focus:outline-none"
                 />
               </div>
@@ -377,6 +388,7 @@ export default class RegForm extends Component {
                   customer.pr5 = this.depName(newList[4].id);
                   customer.pr6 = this.depName(newList[5].id);
                   customer.pr7 = this.depName(newList[6].id);
+                  customer.pr8 = this.depName(newList[7].id);
                   this.setState({ customer: customer });
                 }
                 }

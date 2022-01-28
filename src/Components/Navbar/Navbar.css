@@ -3,6 +3,10 @@
     background-color: rgba(0,0,0,0.35);
 }
 
+#changeText{
+    font-weight: bold;
+}
+
 .headline {
     font-size: xx-large;
 }

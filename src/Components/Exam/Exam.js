@@ -3,6 +3,40 @@ import axios from "axios";
 import "./Exam.css";
 import ReactHtmlParser from "react-html-parser";
 
+const doubleDigis = (num) => {
+  if (num == 0) {
+    return "00";
+  }
+  if(num===1) {
+    return "01";
+  }
+  if (num === 2) {  
+    return "02";
+  }
+  if (num === 3) {
+    return "03";
+  }
+  if (num === 4) {
+    return "04";
+  }
+  if (num === 5) {
+    return "05";
+  }
+  if (num === 6) {
+    return "06";
+  }
+  if (num === 7) {
+    return "07";
+  }
+  if (num === 8) {
+    return "08";
+  }
+  if (num === 9) {
+    return "09";
+  }
+  return num;
+}
+
 const Exam = (props) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
@@ -32,11 +66,11 @@ const Exam = (props) => {
 
   
 
-  // useEffect(() => {
-  //   if (time < 0) {
-  //     handleSubmitButton();
-  //   }
-  //  }, [time]);
+  useEffect(() => {
+    if (time < 0) {
+      handleSubmitButton();
+    }
+   }, [time]);
 
    useEffect(() => {
       const config = {
@@ -80,6 +114,7 @@ const Exam = (props) => {
   };
 
   const handlePrevious = () => {
+    setFibanswer("");
     const prevQues = currentQuestion - 1;
     prevQues >= 0 && setCurrentQuestion(prevQues);
     setFibanswer(submittedAnswers[prevQues].answertext ? submittedAnswers[prevQues].answertext : "");
@@ -170,23 +205,26 @@ const Exam = (props) => {
       <div className="z-10 flex px-2 md:px-5 justify-center items-center ExamComp text-white">
       
      {!submitted ?  (
-        <div className="flex flex-col" style={{flexShrink:"30", alignItems:"center" , width: "100%"}}>
+        <div className="flex flex-col md:pl-8 md:pr-16" style={{flexShrink:"30", alignItems:"center" , width: "100%"}}>
             <div className="master-ques">
-                      <div className="timer"> Time left - {(Math.floor(time/60))/10 < 1 ? `0${Math.floor(time/60)}` : Math.floor(time/60) } : {(time%60)/10 < 0 ? `0${time % 60}` : time % 60 } </div>
+              <div className="pl-8 pr-8" style={{display: "flex", flexDirection:"row", alignItems:"center", justifyContent:"space-between", width:"100%"}}>
+                <div className="text-2xl">Time Left - </div>
+                <div className="timer">{doubleDigis(Math.floor(time/60))} : {doubleDigis(time%60)} </div>
+              </div>      
                           <div className="question-nav">
                             { questions.map((ques) => (  
                               <div className="question-nav-child">
                                 { (selectedOptions2[ques.sno] == null && submittedAnswers[ques.sno] == null ) ? (<div className="opt1"><div onClick={() =>  handleNavigation(ques.sno)} className="cursor-pointer ques-num"> Q{ques.sno+1}</div></div>) : ( <div className="opt2"><div onClick={() =>  handleNavigation(ques.sno)} className="cursor-pointer ques-num"> Q{ques.sno+1}</div></div>) }
                             </div> ))}
                           </div>
-                      <div style={{fontSize : "medium"}}> 
-                        <div className="flex items-center mb-2 mt-2"><div className="opt11"></div> <p>Unanswered</p></div>
-                        <div className="flex items-center mb-2 mt-2"><div className="opt12"></div> <p>Answered</p></div>  
+                      <div className="text-base flex flex-row mt-4"> 
+                        <div className="flex items-center m-4"><div className="opt11"></div> <p>Unanswered</p></div>
+                        <div className="flex items-center m-4"><div className="opt12"></div> <p>Answered</p></div>  
                       </div>  
               </div>
             <div className="resources">
-                  <p className="font-bold">Resources</p>
-                  <p>{questions[0].hint_text}</p>
+                  <p className="font-bold text-center text-xl mb-4">Resources</p>
+                  <p>{ReactHtmlParser(questions[0].hint_text)}</p>
                   <br></br>
               <p><a href={questions[0].hint_link} target="_blank" className="text-blue-500">{questions[currentQuestion].hint_link==="" ? null : "Resource Link"}</a></p>
               </div>
@@ -202,7 +240,7 @@ const Exam = (props) => {
       ) : (
         
 
-        <div className="w-3/4 ques-panel" >
+        <div className="w-3/4 ques-panel md:pr-8" >
           
           <div className="flex flex-col items-start w-full p-4 md:p-10">
             <h4 className="mt-10 text-xl text-white font-bold">
@@ -236,10 +274,12 @@ const Exam = (props) => {
               questions[currentQuestion].options.map((answer, index) => (
                 <div
                   key={index}
+                  onClick={() => {document.getElementById("checkbox"+index).checked = true; handleMCQAnswerOption(index,questions[currentQuestion].id)}}
                   className="flex items-center w-full py-4 pl-5 m-2 ml-0 space-x-2 border-2 cursor-pointer bg-white/5 border-white/10 rounded-xl"
                 >
                   <input
                     type="radio"
+                    id={"checkbox"+index}
                     name={answer.text}
                     value={answer.text}
                     onChange={(e) => handleMCQAnswerOption(index,questions[currentQuestion].id)}

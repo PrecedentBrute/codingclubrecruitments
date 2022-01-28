@@ -26,6 +26,7 @@
     -->
     <title>Coding Club | BITS Pilani</title>
     <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -40,5 +41,27 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script type="text/javascript">
+      (function () {
+        var words = ["Login", "Apply"],
+          i = 0;
+        setInterval(function () {
+          $('#changeText').fadeOut(function () {
+            $(this).html(words[(i = (i + 1) % words.length)]).fadeIn();
+          });
+        }, 4000);
+      })();
+    </script>
+    <script type="text/javascript">
+      (function () {
+        var words = ["Login", "Apply"],
+          i = 0;
+        setInterval(function () {
+          $('#changeTextMob').fadeOut(function () {
+            $(this).html(words[(i = (i + 1) % words.length)]).fadeIn();
+          });
+        }, 4000);
+      })();
+    </script>
   </body>
 </html>

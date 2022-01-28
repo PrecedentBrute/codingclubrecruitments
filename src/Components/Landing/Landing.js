@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./Landing.scss";
+import { NavLink } from "react-router-dom";
+import Fade from 'react-reveal/Fade';
 
-const Landing = () => {
+const Landing = (props) => {
   const [render, setRender] = useState(false);
   const [border, setBorder] = useState(4);
 
@@ -30,6 +32,16 @@ const Landing = () => {
   //   </div>
   // );
 
+  let toRender = <a href="https://accounts.google.com/o/oauth2/v2/auth?scope=https%3A//www.googleapis.com/auth/userinfo.profile+https%3A//www.googleapis.com/auth/userinfo.email&access_type=offline&include_granted_scopes=true&response_type=code&state=state_parameter_passthrough_value&redirect_uri=https%3A//api.cc-recruitments.tech/rest-auth/google/callback/&client_id=754009890523-f8r6n04j7k09grmf1auf8c872a7j1nbm.apps.googleusercontent.com&hd=pilani.bits-pilani.ac.in" activeClassName="activeStyle" className='p-4'>
+                APPLY
+  </a>
+  
+  if (props.loggedIn) {
+    toRender = <NavLink to='/test'>
+        APPLY
+      </NavLink>
+  }
+
   return (
     <div className="page">
     <div class="page-bg"></div>
@@ -54,6 +66,13 @@ const Landing = () => {
             {render ? <div className="type-text">BITS PILANI</div> : null}
           </h1>
         </div>
+        <Fade>
+        <div className="w-screen flex justify-center mt-8 applyButton">
+          <h1 className="relative top-60 text-3xl md:text-4xl" onClick={()=>{console.log("apply")}}>
+             {toRender}
+          </h1>
+          </div>
+          </Fade>
     </div>
     </div>
   )

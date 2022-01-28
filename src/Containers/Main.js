@@ -23,6 +23,16 @@ const Main = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
+  });
+  
+  const twentyMessage = () => toast.error(`Only 2021 batch can login!`, {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
         });
 
   //login state
@@ -45,6 +55,7 @@ const Main = () => {
     setLoggedIn(val);
     if (val === false) {
       setPerson(null);
+      localStorage.setItem('person', null);
     }
   }
 
@@ -63,25 +74,39 @@ const Main = () => {
 
   useEffect(() => {
 
-    if (wantsIn) {
-      axios(config).then(res => {
 
-        console.log(res);
-        
+    if (wantsIn) {
+      axios(config).then(res => {        
         
         if (res.status === 200) {
           const cookies = new Cookies();
+
           const profile = {
             email: res.data.email,
             name: res.data.name,
             csrf: cookies.get('csrftoken'),
             testSubmitted: res.data.exam_given,
-            time: res.data.time
+            time: res.data.time,
+            not21: res.data.msg && res.data.msg.includes("2021") ? true : false
           }
-          setPerson(profile);
-          setLoggedIn(true);
-          loggedInMessage(res.data.name);
-  
+
+          if (res.data.msg && res.data.msg.includes("Not User")) {
+            cookies.remove('csrftoken');
+            cookies.remove('sessionid');
+          }
+
+          const anonymous = res.data.msg && res.data.msg.includes("Not User");
+
+          if (profile.not21) {
+            twentyMessage();
+            cookies.remove('csrftoken');
+            cookies.remove('sessionid');
+          } else if(!anonymous) {
+            setPerson(profile);
+            localStorage.setItem('person', JSON.stringify(profile));
+            setLoggedIn(true);
+            loggedInMessage(res.data.name);
+          }
       }
     }).catch(err => {
       console.log(err)
@@ -115,11 +140,16 @@ const Main = () => {
                     pr5: response.data.pr5,
                     pr6: response.data.pr6,
                     pr7: response.data.pr7,
+                    pr8: response.data.pr8,
                     github: response.data.github,
                     branch: response.data.bits_id.substring(4, 6),
                     status: response.data.bits_id.substring(6, 8),
                     id: response.data.bits_id.substring(8, 12),
+                    phone_number: response.data.phone_number,
                   }
+
+                  localStorage.setItem('preferences', JSON.stringify(customer));
+
                   setPreferences(customer);
                 }
               }).catch(function (error) {
@@ -138,7 +168,6 @@ const Main = () => {
     const hideMenu = () => {
       if (window.innerWidth > 768 && isOpen) {
         setIsOpen(false);
-        console.log('i resized');
       }
     };
 
@@ -170,7 +199,7 @@ const Main = () => {
             theme="dark"
             />
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Home} loggedIn={loggedIn} />
             <Route path="/preferences" render={() => <RegForm loggedIn={loggedIn} person={person} preferences={preferences}/>} />
           <Route path="/projects" component={OurProjects} />
           <Route path="/test" render={() => <Recruitment loggedIn = {loggedIn} person={person} toggleStarted={toggleTestStarted} testStarted={testStarted} />} />

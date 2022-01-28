@@ -5,12 +5,12 @@ import Landing from "../Components/Landing/Landing";
 import axios from 'axios';
 import {useEffect} from 'react';
 
-const Home = () => {
+const Home = (props) => {
 
 
     return (
         <div>
-            <Landing />
+            <Landing loggedIn={props.loggedIn} />
             {/*<Carousel />*/}
         </div>
     )

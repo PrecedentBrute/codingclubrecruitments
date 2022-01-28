@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Exam from "../../Components/Exam/Exam";
-import Navbar from "../../Components/Navbar/Navbar";
 import Fade from 'react-reveal/Fade';
 import './Recruitment.css';
 
@@ -15,6 +14,7 @@ const Recruitment = (props) => {
   if (!props.loggedIn) {
     buttonClass += " cursor-not-allowed opacity-50 disabledButton";
   }
+  
     
   return (
     <div>
@@ -27,17 +27,22 @@ const Recruitment = (props) => {
           <div className="bg-red-600 h-24 w-24 rounded-full flex items-center justify-center recruitment-card-image" >
             
           </div>
-                  <h3 className="text-white text-center p-2">{props.loggedIn && props.person !== null ? <>Welcome {props.person.name}</> : <>Please login to start the test</>}</h3>
+                  <h3 className="text-white text-center p-2">{"Test will start on Sunday, 30th Jan 2022 at 8:30 PM"}</h3>
         </div>
       </div>
       
-      <button
+              {/*<button
         className={buttonClass}
               onClick={toggleShow}
               disabled={!props.loggedIn}
       >
-        {props.person && props.person.time<3600 ? "Resume Test" : "Start Test"}
-      </button>
+        {(props.person && props.person.time<3600) ? "Resume Test" : "Start Test"}
+      </button>*/}
+              
+                
+              <button className={`${buttonClass} + disabledButton`} disabled={true}>
+                Start Test
+              </button>
       </Fade>
       
     </div>) 

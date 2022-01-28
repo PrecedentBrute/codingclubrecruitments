@@ -7,6 +7,12 @@
 //   opacity: 1;
 // } */
 
+.applyButton{
+  font-weight: bold;
+  cursor: pointer;
+  filter: drop-shadow(0px 0px 15px rgba(255, 0, 0, 1));
+}
+
 .typing {
   font-family: "Courier New", Courier, monospace;
 }
