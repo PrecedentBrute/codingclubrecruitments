@@ -68,7 +68,7 @@ const Landing = (props) => {
         </div>
         <Fade>
         <div className="w-screen flex justify-center mt-8 applyButton">
-          <h1 className="relative top-60 text-3xl md:text-4xl" onClick={()=>{console.log("apply")}}>
+          <h1 className="relative top-60 text-3xl md:text-4xl">
              {toRender}
           </h1>
           </div>
