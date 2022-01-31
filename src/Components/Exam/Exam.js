@@ -4,7 +4,7 @@ import "./Exam.css";
 import ReactHtmlParser from "react-html-parser";
 
 const doubleDigis = (num) => {
-  if (num == 0) {
+  if (num == 0 || num < 0) {
     return "00";
   }
   if(num===1) {
@@ -136,7 +136,6 @@ const Exam = (props) => {
   }
 
   const handleSubmitButton = () => {
-    setSubmitted(true);
     let answers = [...selectedOptions, ...submittedAnswers];
     answers = answers.filter(function( element ) {
     return element !== undefined;
@@ -155,9 +154,10 @@ const Exam = (props) => {
         
       axios(config)
       .then(function (response) {
-        
+        setSubmitted(true);
+        window.location.replace("https://cc-recruitments.tech/");
       }).catch(function (error) {
-        window.alert("Something went wrong, please try again");
+        window.alert("Something went wrong, please try again. If the problem persists, please join the meet - https://meet.google.com/mzi-yscc-ega.");
         console.log(error);
       });
     
@@ -178,7 +178,8 @@ const Exam = (props) => {
   }, [submittedAnswers])
 
   useEffect(() => {
-      const config = {
+
+    const config = {
         url: "https://api.cc-recruitments.tech/exam-api/GetQuestions",
         method: "get",
         headers: {
@@ -188,14 +189,16 @@ const Exam = (props) => {
     }
 
     axios(config).then(res => {
-      if (!Array.isArray(res.data)) {
-        console.log("error in fetching questions, please try again");
+      if (res.data && !Array.isArray(res.data)) {
+        window.alert("Error in fetching questions, please try again (reload the page). If the issue persists please join the meet - https://meet.google.com/mzi-yscc-ega.");
       } else {
-          setQuestions(res.data);
+          const examQuestions = res.data.sort((a,b) => (a.sno > b.sno) ? 1 : ((b.sno > a.sno) ? -1 : 0))
+          setQuestions(examQuestions);
       }
     }).catch(err => {
       console.log(err)
-    });
+    }); 
+    
   }, [])
 
   let toRender = <div className="text-center text-2xl mt-4 text-white">Loading Questions...</div>;
@@ -233,8 +236,8 @@ const Exam = (props) => {
       
       {submitted ? (
         <div> 
-        <h1 className="text-3xl font-bold text-center text-white mt-10">
-          Thank you for your participation, we will get in touch with you soon.
+        <h1 className="text-2xl md:text-3xl p-4 font-bold text-center text-white mt-10">
+          Thank you for your participation, we will get in touch with you soon. In case you didn't submit, your answers have been auto-submitted. 
         </h1>
         </div>
       ) : (

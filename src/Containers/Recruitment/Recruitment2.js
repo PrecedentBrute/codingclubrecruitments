@@ -43,11 +43,13 @@ const Recruitment = (props) => {
     </div>;
 
     if (props.person && props.person.testSubmitted) {
-        toRender = <div className="mt-8 text-2xl text-center text-white">You have already submitted the test. Please check after 10:00pm to check your scores.</div>;
+        toRender = <div className="mt-8 p-4 md:p-8 text-center font-bold text-white"><div className="text-xl md:text-2xl mt-4">You have already submitted the test. Please visit after 10:30 PM to check your score. Please check your BITS Email Inbox and the spam folder from time to time.</div><div className="mx-auto w-3/4 md:w-1/2 mt-4"><img class="mx-auto" src="/assets/img.png" alt="club_image"/></div></div>;
     }
     
-  return (
-    {toRender}
+    return (
+  <React.Fragment>
+            {toRender}
+        </React.Fragment>
   );
 };
 

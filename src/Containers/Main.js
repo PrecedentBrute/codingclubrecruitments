@@ -12,6 +12,7 @@ import axios from 'axios';
 import Cookies from 'universal-cookie';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Recruitment2 from './Recruitment/Recruitment2';
 
 const Main = () => {
 
@@ -201,9 +202,9 @@ const Main = () => {
         <Switch>
             <Route exact path="/" render={() => <Home loggedIn={loggedIn}/>}/>
             <Route path="/preferences" render={() => <RegForm loggedIn={loggedIn} person={person} preferences={preferences}/>} />
-          <Route path="/projects" component={OurProjects} />
-          <Route path="/test" render={() => <Recruitment loggedIn = {loggedIn} person={person} toggleStarted={toggleTestStarted} testStarted={testStarted} />} />
-        </Switch>
+            <Route path="/projects" component={OurProjects} />
+            <Route path="/test" render={() => <Recruitment loggedIn={loggedIn} person={person} toggleStarted={toggleTestStarted} testStarted={testStarted} />} />
+          </Switch>
       
       
         </BrowserRouter>
